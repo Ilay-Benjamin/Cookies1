@@ -162,7 +162,6 @@ function addNote() {
     var newNote = getNoteElement();
     output.appendChild(newNote);
     cManager.addNote(noteSect.getValue());
-    noteSect.get("input").value = "";
     return true;
   }
   console.error("Note is empty");
@@ -196,6 +195,7 @@ function nameHandler() {
 // On Note Button Click Function
 function noteHandler() {
   addNote();
+  noteSect.get("input").value = "";
 }
 
 // Check Function
@@ -206,7 +206,7 @@ function check() {
   details.innerHTML += "notes.isset(): " + cManager.notes.isset() + "<br>";
   details.innerHTML += "notes: " + cManager.getNotes() + "<br>";
   details.innerHTML += "cookie: " + document.cookie + "<br>";
-  details.innerHTML += "<br>- - - - - - - - - - - - - - - - - - - - - - - - - - - -<br>";
+  details.innerHTML += "<br> <strong>" + "- - - - - - - - - - - - - - - - - - - - - - - -" + "</strong> <br>";
 }
 
 
