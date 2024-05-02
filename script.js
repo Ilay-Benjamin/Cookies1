@@ -209,3 +209,5 @@ function check() {
   details.innerHTML += "notes: " + cManager.getNotes() + "<br>";
   details.innerHTML += "cookie: " + document.cookie + "<br>";
 }
+
+loadUser();
