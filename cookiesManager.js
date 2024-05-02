@@ -15,13 +15,13 @@ class CookiesManager {
   }
 
   getNotes() {
-    return this.notes.get();
+    return JSON.parse(this.notes.get());
   }
 
   addNote(note) {
     var notesList = (this.notes.isset() ? this.getNotes() : []);
     notesList.push(note);
-    this.notes.set(note);
+    this.notes.set(JSON.stringify(notesList));
   }
 
   login(username) {
