@@ -256,7 +256,7 @@ function nameHandler() {
     sign(nameSect.ability);
 }
 
-ss
+
 function noteHandler() {
     addNote();
 }
