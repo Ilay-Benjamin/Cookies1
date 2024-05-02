@@ -161,10 +161,8 @@ function addNote() {
   if (noteSect.checkValue()) {
     var newNote = getNoteElement();
     output.appendChild(newNote);
-    noteSect.get("input").value = "";
-    //  noteSect.get("button")
-    //   .disabled = true;
     cManager.addNote(noteSect.getValue());
+    noteSect.get("input").value = "";
     return true;
   }
   console.error("Note is empty");
@@ -188,6 +186,8 @@ function loadUser() {
   return false;
 }
 
+
+
 // On Name Button Click Function
 function nameHandler() {
   sign(nameSect.ability);
@@ -198,8 +198,6 @@ function noteHandler() {
   addNote();
 }
 
-
-
 // Check Function
 function check() {
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
@@ -208,6 +206,9 @@ function check() {
   details.innerHTML += "notes.isset(): " + cManager.notes.isset() + "<br>";
   details.innerHTML += "notes: " + cManager.getNotes() + "<br>";
   details.innerHTML += "cookie: " + document.cookie + "<br>";
+  details.innerHTML += "<br>- - - - - - - - - - - - - - - - - - - - - - - - - - - -<br>";
 }
 
+
+// Load User
 loadUser();
