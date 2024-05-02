@@ -15,7 +15,15 @@ class CookiesManager {
   }
 
   getNotes() {
-    return JSON.parse(this.notes.get());
+    try {
+      if (!this.notes.isset()) {
+        throw new Error("Notes cookie is not set");
+      }
+      return JSON.parse(this.notes.get());
+    } catch (e) {
+      //console.error(e);
+      return null;
+    }
   }
 
   addNote(note) {
@@ -37,7 +45,7 @@ class CookiesManager {
   }
 
   isNotesEmpty() {
-    return  this.getNotes() === null && this.getNotes().length === 0
+    return  this.notes.get() === null || this.getNotes().length === 0
   }
   
 }
