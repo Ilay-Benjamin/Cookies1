@@ -6,17 +6,8 @@ class CookiesManager {
   static NOTES = "notes";
 
   constructor() {
-    this.username = new MyCookie(
-      CookiesManager.USERNAME
-    );
-    this.notes = new MyCookie(
-      CookiesManager.NOTES
-    );
-   // this.username.set("Ron");
-  }
-  
-  hey() {
-      return "Hello, World!";
+    this.username = new MyCookie(CookiesManager.USERNAME);
+    this.notes = new MyCookie(CookiesManager.NOTES);
   }
 
   getUsername() {
@@ -28,10 +19,7 @@ class CookiesManager {
   }
 
   addNote(note) {
-    
-    var notesList =
-      (this.notes.isset() ?
-       this.getNotes() : []);
+    var notesList = (this.notes.isset() ? this.getNotes() : []);
     notesList.push(note);
     this.notes.set(note);
   }
@@ -49,10 +37,7 @@ class CookiesManager {
   }
 
   isNotesEmpty() {
-    return (
-      this.getNotes() !== null &&
-      this.getNotes().length === 0
-    );
+    return  this.getNotes() !== null && this.getNotes().length === 0
   }
   
 }
@@ -65,11 +50,7 @@ class MyCookie {
   constructor(name) {
     this.name = name;
   }
-  
-  bye() {
-    return "Bye Bye (:";
-  }
- 
+
   get() {
     const nameEQ = this.name + "=";
     const ca = document.cookie.split(';'); // Split the cookie string into individual cookies

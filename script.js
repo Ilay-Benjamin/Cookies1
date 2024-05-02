@@ -213,5 +213,7 @@ function check() {
   loadUser();
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
   details.innerHTML += "username: " + cManager.getUsername() + "<br>";
+  details.innerHTML += "isNotesEmpty: " + cManager.isNotesEmpty() + "<br>";
+  details.innerHTML += "notes: " + cManager.getNotes() + "<br>";
   details.innerHTML += "cookie: " + document.cookie + "<br>";
 }
