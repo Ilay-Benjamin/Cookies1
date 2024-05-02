@@ -21,7 +21,6 @@ class CookiesManager {
       }
       return JSON.parse(this.notes.get());
     } catch (e) {
-      //console.error(e);
       return null;
     }
   }
