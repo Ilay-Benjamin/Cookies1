@@ -12,6 +12,11 @@ class CookiesManager {
     this.notes = new MyCookie(
       CookiesManager.NOTES
     );
+   // this.username.set("Ron");
+  }
+  
+  hey() {
+      return "Hello, World!";
   }
 
   getUsername() {
@@ -23,9 +28,12 @@ class CookiesManager {
   }
 
   addNote(note) {
-    let notesList = this.getNotes() || []; // Get existing notes or initialize to empty array
-    notesList.push(note); // Add new note to the array
-    this.notes.set(notesList); // Save the updated array back to the cookie
+    
+    var notesList =
+      (this.notes.isset() ?
+       this.getNotes() : []);
+    notesList.push(note);
+    this.notes.set(note);
   }
 
   login(username) {
@@ -57,38 +65,34 @@ class MyCookie {
   constructor(name) {
     this.name = name;
   }
-
+  
+  bye() {
+    return "Bye Bye (:";
+  }
+ 
   get() {
     const nameEQ = this.name + "=";
-    const ca = document.cookie.split(';');
+    const ca = document.cookie.split(';'); // Split the cookie string into individual cookies
     for (let i = 0; i < ca.length; i++) {
-      let c = ca[i].trim();
-      if (c.indexOf(nameEQ) === 0) {
-        const value = c.substring(nameEQ.length);
-        try {
-          return JSON.parse(value); // Parse the JSON stored in the cookie
-        } catch (e) {
-          console.error("Error parsing JSON from cookie", e);
-          return null;
-        }
-      }
+        let c = ca[i].trim(); // Trim leading spaces using trim() for cleaner syntax
+        if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length); // Return the value part of the cookie
     }
-    return null;
+    return null; // Return null if the cookie with the specified name isn't found
   }
-
+  
   isset() {
     return this.get() !== null; // Reuse the get() method to check if the cookie is set
   }
 
-  set(value, daysToExpire = 7) {
+  set(value, daysToExpire = 7) { // Add daysToExpire as a parameter with a default value
     let expires = "";
     if (daysToExpire) {
-      const date = new Date();
-      date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
+        const date = new Date();
+        date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
     }
-    const valueStr = JSON.stringify(value); // Convert value to JSON string
-    document.cookie = `${this.name}=${valueStr}${expires}; path=/`;
+    document.cookie = `${this.name}=${value}${expires}; path=/`; // Use this.name for consistency
   }
 
   delete() {
