@@ -67,54 +67,36 @@ class MyCookie {
   }
   
   bye() {
-      return "Bye Bye (:";
+    return "Bye Bye (:";
   }
  
   get() {
-    const name = this.name;
-    const nameEQ = name + "=";
+    const nameEQ = this.name + "=";
     const ca = document.cookie.split(';'); // Split the cookie string into individual cookies
     for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ')
-            c = c.substring(1); // Remove any leading spaces
+        let c = ca[i].trim(); // Trim leading spaces using trim() for cleaner syntax
         if (c.indexOf(nameEQ) == 0)
-            return c.substring(nameEQ.length, c.length); // Return the value part of the cookie
+            return c.substring(nameEQ.length); // Return the value part of the cookie
     }
     return null; // Return null if the cookie with the specified name isn't found
   }
   
   isset() {
-    const name = this.name;
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-          c = c.substring(1, c.length);
-        }
-        if (c.indexOf(nameEQ) === 0) {
-          return true;
-        }
-    }
-    return false;
+    return this.get() !== null; // Reuse the get() method to check if the cookie is set
   }
 
-  set(value) {
-    const name = this.name;
-    const daysToExpire = 7;
+  set(value, daysToExpire = 7) { // Add daysToExpire as a parameter with a default value
     let expires = "";
     if (daysToExpire) {
         const date = new Date();
         date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = `${name}=${value}${expires}; path=/`;
+    document.cookie = `${this.name}=${value}${expires}; path=/`; // Use this.name for consistency
   }
 
   delete() {
-    const name = this.name;
-    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+    document.cookie = `${this.name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/`; // Use template literal for consistency
   }
   
 }
