@@ -198,6 +198,17 @@ function noteHandler() {
   noteSect.get("input").value = "";
 }
 
+// Check Function
+function check() {
+  details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
+  details.innerHTML += "username: " + cManager.getUsername() + "<br>";
+  details.innerHTML += "isNotesEmpty: " + cManager.isNotesEmpty() + "<br>";
+  details.innerHTML += "notes.isset(): " + cManager.notes.isset() + "<br>";
+  details.innerHTML += "notes: " + cManager.getNotes() + "<br>";
+  details.innerHTML += "cookie: " + document.cookie + "<br>";
+  details.innerHTML += "<br> <strong>" + "- - - - - - - - - - - - - - - - - - - - - - - -" + "</strong> <br>";
+}
+
 
 
 // Load User
