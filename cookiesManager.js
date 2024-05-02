@@ -37,7 +37,7 @@ class CookiesManager {
   }
 
   isNotesEmpty() {
-    return  this.getNotes() !== null && this.getNotes().length === 0
+    return  this.getNotes() === null && this.getNotes().length === 0
   }
   
 }
