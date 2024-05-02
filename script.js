@@ -88,13 +88,11 @@ var nameInput = document.getElementById("name_input");
 // Note Input
 var noteInput = document.getElementById("note_input");
 
-// Name Buton
+// Name Button
 var nameButton = document.getElementById("name_button");
 
 // Note Button
 var noteButton = document.getElementById("note_button");
-
-
 
 // Name Section Object
 var nameSect = new Section(Section.NAME);
@@ -121,8 +119,6 @@ function shakeElement(element) {
   }
 }
 
-
-
 // Build Note Element Function
 function buildNoteElement(value, name) {
   var newNote = document.createElement("p");
@@ -137,8 +133,6 @@ function getNoteElement() {
     nameSect.getValue(),
   );
 }
-
-
 
 // Sign In/Out Function
 function sign(
@@ -194,8 +188,6 @@ function loadUser() {
   return false;
 }
 
-
-
 // On Name Button Click Function
 function nameHandler() {
   sign(nameSect.ability);
@@ -214,6 +206,7 @@ function check() {
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
   details.innerHTML += "username: " + cManager.getUsername() + "<br>";
   details.innerHTML += "isNotesEmpty: " + cManager.isNotesEmpty() + "<br>";
+  details.innerHTML += "notes.isset(): " + cManager.notes.isset() + "<br>";
   details.innerHTML += "notes: " + cManager.getNotes() + "<br>";
   details.innerHTML += "cookie: " + document.cookie + "<br>";
 }
