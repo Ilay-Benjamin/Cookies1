@@ -202,7 +202,6 @@ function noteHandler() {
 
 // Check Function
 function check() {
-  loadUser();
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
   details.innerHTML += "username: " + cManager.getUsername() + "<br>";
   details.innerHTML += "isNotesEmpty: " + cManager.isNotesEmpty() + "<br>";
