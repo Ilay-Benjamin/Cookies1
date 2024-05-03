@@ -19,7 +19,7 @@ class Section {
       input: (Section.isName(index) ? nameInput : noteInput),
       button: (Section.isName(index) ? nameButton : noteButton)
     };
-    this.setAbility((Section.isName(index) ? cManager.isSignedIn : !cManager.isSignedIn));
+    this.setAbility((Section.isName(index) ? cManager.isSignedIn() : !cManager.isSignedIn()));
   }
 
   get(element) {
