@@ -217,6 +217,7 @@ async function sendContactMessage(message) {
 // Load User Function
 function loadUser() {
   if (cManager.isSignedIn()) {
+    console.log("User is signed in");
     nameSect.get("input").value = cManager.getUsername();
     nameSect.get("button").click();
     if (!cManager.isNotesEmpty()) {
