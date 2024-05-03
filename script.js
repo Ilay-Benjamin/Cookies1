@@ -173,7 +173,7 @@ function loadUser() {
     nameSect.get("input").value = cManager.getUsername();
     nameSect.get("button").click();
     if (!cManager.isNotesEmpty()) {
-      for (n of cManager.getNotes()) {
+      for (var n of cManager.getNotes()) {
         var e = buildNoteElement(n, cManager.getUsername());
         output.appendChild(e);
       }
