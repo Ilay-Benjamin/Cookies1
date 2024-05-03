@@ -1,13 +1,12 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>App 5</title>
-  <link href="https://ilaychecks.online/Apps/app5/style.css" rel="stylesheet" />
-  <link href="https://ilaychecks.online/Apps/app5/shakeAnimation.css" rel="stylesheet" />
+  <link href="https://ilaychecks.online/Apps/app5/style.css" rel="stylesheet">
+  <link href="https://ilaychecks.online/Apps/app5/shakeAnimation.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://ilaychecks.online/Apps/app5/cookiesManager.js" defer></script>
   <script src="https://ilaychecks.online/Apps/app5/script.js" defer></script>
@@ -19,95 +18,39 @@
       document.getElementById("note_input").value = "adgf";
     });
   </script>
-
 </head>
 
-
-<body style="background-color: wheat;">
+<body>
 
   <h1>My Page</h1>
   <p>This is my page</p>
 
-  <button type="button" onclick="check();" style="display: none;">
-    Load User
-  </button>
-
-  <button id="hey_server_button" style="
-    background-color: rgb(0, 17, 169);
-    color: white;
-    margin: 0;" type="button" onclick="heyServerHandler();">
-  Hey Server
-  </button>
-
-  <br><br>
-
-  <br>
-
-  <div id="name_div" style="
-      background-color: cyan; 
-      padding: 10px;">
-    <label for="name_input" style="margin: 7px;">
-      Name
-    </label>
+  <div id="name_div" class="user-interface">
+    <label for="name_input">Name:</label>
     <input id="name_input" type="text" placeholder="Enter your name">
-    <button id="name_button" style="
-        background-color: green;
-        color: white;
-        margin: 7px;" type="button" onclick="nameHandler();">
-      Log-In
-    </button>
+    <button id="name_button" onclick="nameHandler();">Log-In</button>
   </div>
 
-  <div id="messages_div" style="
-    background-color: rgb(222, 112, 216); 
-    padding: 10px;">
-    <label for="note_input" style="margin: 7px;">
-      Contact
-    </label>
+  <div id="messages_div" class="user-interface">
+    <label for="note_input">Contact:</label>
     <input id="note_input" type="text" placeholder="Enter your message">
-    <button id="c_button" style="
-        background-color: green;
-        color: white;
-        margin: 7px;" type="button" onclick="contactHandler();">
-      Send
-    </button>
+    <button id="c_button" onclick="contactHandler();">Send</button>
   </div>
 
-
-  <br>
-
-  <div id="note_div" style="
-      background-color: yellow; 
-      padding: 10px;">
-    <label for="c_input" style="margin: 7px;">
-      Note
-    </label>
-    <input id="c_input" type="text" placeholder="Enter your note" >
-    <button id="note_button" style="margin: 7px;" onclick="noteHandler();" type="button" >
-      Add
-    </button>
+  <div id="note_div" class="user-interface">
+    <label for="c_input">Note:</label>
+    <input id="c_input" type="text" placeholder="Enter your note">
+    <button id="note_button" onclick="noteHandler();">Add</button>
   </div>
 
-  <br>
-
-  <div id="output" style="
-      background-color: pink;
-      padding: 10px; 
-      border: 1px solid black;">
-    <p style="
-        color: grey; 
-        background-color: black;">
-      Your notes...
-    </p>
+  <div id="output" class="output-area">
+    <p>Your notes...</p>
   </div>
-
-  <br>
 
   <div id="details"></div>
 
-  <br>
+  <button id="hey_server_button" onclick="heyServerHandler();">Hey Server</button>
 
 </body>
-
 
 </html>
