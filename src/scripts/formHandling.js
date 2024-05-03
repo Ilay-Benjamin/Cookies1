@@ -1,5 +1,6 @@
 import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote } from './../assets/js/script.js';
+import { heyServer } from '../services/heyServerService.js';
 
 // Name Handler Function
 export function nameHandler() {
@@ -15,13 +16,7 @@ export function noteHandler() {
 
 // Hey Server Handler Function
 export async function heyServerHandler() {
-    var response = await fetch("https://ilaychecks.online/Apps/app5/server/app/server.php?action=hey");
-    var data = await response.json();
-    var message = data.message;
-    appendMessageElement(message);
-    //var message = "Hey Server!";
-    //messagesDiv.innerHTML += "<p>" + message + "</p>";
-    //messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    heyServer((data) => appendMessageElement(data.message));
 }
 
 // Contact Handler Function
@@ -40,8 +35,7 @@ export async function contactHandler() {
         success: function(output) {
           console.log(output);
           var data = JSON.parse(output);
-          var message = data.message + "\n" + " (Msg: " + contact + ") ";
-          appendMessageElement(message);
+          appendMessageElement(data.message + "\n" + " (Msg: " + contact + ") ");
           //contact.value = "";
         },
       });

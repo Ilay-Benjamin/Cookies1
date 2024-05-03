@@ -66,7 +66,7 @@ export function init() {
   console.log("DOM fully loaded and parsed");
   nameSect = SectionFactory.NAME_SECTION();
   noteSect = SectionFactory.NOTE_SECTION();
-  enter();
+  enter((data) => appendMessageElement(data.message));
   loadUser();
 }
 
