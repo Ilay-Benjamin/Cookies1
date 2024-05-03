@@ -41,6 +41,9 @@ var nameSect;
 // Note Section Object
 var noteSect;
 
+// Cookie Manager Object
+var cManager;
+
 
 function loadHTMLElements() {
     // Details Div

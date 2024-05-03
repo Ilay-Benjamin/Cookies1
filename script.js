@@ -143,10 +143,6 @@ class SectionFactory {
 
 
 
-// Cookies Manager Object
-var cManager = new CookiesManager();
-
-
 // Shake Element Function (Animation)
 function shakeElement(element) {
   if (element) {
@@ -341,6 +337,7 @@ function check() {
 
 
 export function init() {
+  cManager = new CookiesManager();
   loadHTMLElements();
   loadHandlers();
   console.log("DOM fully loaded and parsed");
