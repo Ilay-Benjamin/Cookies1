@@ -41,7 +41,11 @@ class Section {
     this.index = index;
     this.label = label;
     this.elements elements
-    this.setAbility(this.ability);
+    if (ability === null) {
+      this.ability = false;
+    } else {
+      this.setAbility(this.ability);
+    }
   }
 
   get(element) {
