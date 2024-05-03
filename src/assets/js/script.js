@@ -55,7 +55,6 @@ function loadUser() {
     nameSect.get("input").value = cManager.getUsername();
     nameSect.get("button").click();
   } 
-  loadNotes();
   return (cManager.isSignedIn());
 }
 
@@ -68,5 +67,6 @@ export function init() {
   noteSect = SectionFactory.NOTE_SECTION();
   enter((data) => appendMessageElement(data.message));
   loadUser();
+  loadNotes();
 }
 
