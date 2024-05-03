@@ -4,35 +4,6 @@ import { sign, addNote, addMessage } from './../assets/js/script.js';
 // Load Handlers Function
 export function loadHandlers() {
 
-    // Check Button Click Event
-    $('#check_btn').on('click', () => {
-      console.log('check_btn clicked');
-      check();
-    });
-
-    // Hey Server Button Click Event
-    $('#hey_server_button').on('click', () => {
-        console.log('hey_server_button clicked');
-        heyServerHandler();
-    });
-
-    // Contact Button Click Event
-    $('#c_button').on('click', () => {
-        console.log('c_button clicked');
-        contactHandler();
-    });
-
-    // Name Button Click Event
-    $('#name_button').on('click', () => {
-        console.log('name_button clicked');
-        nameHandler();
-    });
-
-    // Note Button Click Event
-    $('#note_button').on('click', () => {
-        console.log('note_button clicked');
-        noteHandler();
-    });
 
 } 
 
@@ -86,14 +57,6 @@ export async function contactHandler() {
       console.error("Contact is empty");
       shakeElement(contactInput);
     }
-}
-
-// Enter Handler Function
-export async function enterHandler() {
-    var response = await fetch("https://ilaychecks.online/Apps/app5/server/app/server.php?action=enter");
-    var data = await response.json();
-    var message = data.message;
-    addMessage(message);
 }
 
 // Check2 Function

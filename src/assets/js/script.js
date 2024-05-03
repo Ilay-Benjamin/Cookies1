@@ -1,7 +1,8 @@
-import { loadHandlers, enterHandler } from './../../scripts/formHandling.js';
+import { loadHandlers } from './../../scripts/formHandling.js';
 import { CookiesManager } from './../../models/cookiesManager.js';
 import { Section, SectionFactory } from './../../models/section.js';
 import { shakeElement, buildNoteElement } from './../../scripts/builder.js';
+import { enter } from './../../services/enterService.js';
 
 // Sign In/Out Function
 export function sign(toSignIn) {
@@ -69,6 +70,13 @@ function loadUser() {
   return (cManager.isSignedIn());
 }
 
+function loadHandlers() {
+  nameSect.get("button").addEventListener("click", enterHandler);
+  noteSect.get("button").addEventListener("click", addNote);
+  heyServerButton.addEventListener("click", heyServerHandler);
+  contactButton.addEventListener("click", contactHandler);
+}
+
 
 
 // Initialize Function
@@ -79,7 +87,7 @@ export function init() {
   console.log("DOM fully loaded and parsed");
   nameSect = SectionFactory.NAME_SECTION();
   noteSect = SectionFactory.NOTE_SECTION();
-  enterHandler();
+  enter();
   loadUser();
 }
 

@@ -11,13 +11,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://ilaychecks.online/Apps/app5/inc/initialize.js" defer></script>
   <script type="module" defer>
-    import { init }
-        from 'https://ilaychecks.online/Apps/app5/src/assets/js/script.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('DOMContentLoaded');
-            init();
-        });
-</script>
+    import { init } from 'https://ilaychecks.online/Apps/app5/src/assets/js/script.js';
+    import { check, heyServerHandler, contactHandler, nameHandler, noteHandler } from 'https://ilaychecks.online/Apps/app5/src/scripts/formHandling.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      $('#check_btn').on('click', check);
+      $('#hey_server_button').on('click', heyServerHandler);
+      $('#c_button').on('click', contactHandler);
+      $('#name_button').on('click', nameHandler);
+      $('#note_button').on('click', noteHandler);
+      init();
+    });
+  </script>
 
 </head>
 
@@ -27,76 +32,38 @@
   <h1>My Page</h1>
   <p>This is my page</p>
 
-  <button id="check_btn" type="button" style="display: none;">
-    Load User
-  </button>
+  <button id="check_btn" type="button" style="display: none;">Load User</button>
 
-  <button id="hey_server_button" style="
-    background-color: rgb(0, 17, 169);
-    color: white;
-    margin: 0;" type="button">
-  Hey Server
-  </button>
+  <button id="hey_server_button" style="background-color: rgb(0, 17, 169);color: white; margin: 0;" type="button">Hey Server</button>
 
   <br><br>
 
-  <br>
-
-  <div id="name_div" style="
-      background-color: cyan; 
-      padding: 10px;">
-    <label for="name_input" style="margin: 7px;">
-      Name
-    </label>
+  <div id="name_div" style="background-color: cyan; padding: 10px;">
+    <label for="name_input" style="margin: 7px;">Name</label>
     <input id="name_input" type="text" placeholder="Enter your name">
-    <button id="name_button" style="
-        background-color: green;
-        color: white;
-        margin: 7px;" type="button">
-      Log-In
-    </button>
+    <button id="name_button" style="background-color: green;color: white;margin: 7px;" type="button">Log-In</button>
   </div>
 
   <br>
 
-  <div id="note_div" style="
-      background-color: yellow; 
-      padding: 10px;">
-    <label for="note_input" style="margin: 7px;">
-      Note
-    </label>
-    <input id="note_input" type="text" placeholder="Enter your note" >
-    <button id="note_button" style="margin: 7px;" type="button" >
-      Add
-    </button>
+  <div id="note_div" style="background-color: yellow; padding: 10px;">
+    <label for="note_input" style="margin: 7px;">Note</label>
+    <input id="note_input" type="text" placeholder="Enter your note">
+    <button id="note_button" style="margin: 7px;" type="button">Add</button>
   </div>
 
   <br>
 
-  <div id="output" style="
-      background-color: pink;
-      padding: 10px; 
-      border: 1px solid black;">
-    <p style="
-        color: grey; 
-        background-color: black;">
-      Your notes...
-    </p>
+  <div id="output" style="background-color: pink;padding: 10px; border: 1px solid black;">
+    <p style="color: grey; background-color: black;">Your notes...</p>
   </div>
 
   <br>
 
   <div id="messages_div" style="background-color: darkmagenta; padding: 10px;">
-    <label for="c_input" style="margin: 7px;">
-      Contact
-    </label>
+    <label for="c_input" style="margin: 7px;">Contact</label>
     <input id="c_input" type="text" placeholder="Enter your message">
-    <button id="c_button" style="
-        background-color: green;
-        color: white;
-        margin: 7px;" type="button">
-      Send
-    </button>
+    <button id="c_button" style="background-color: green;color: white;margin: 7px;" type="button">Send</button>
   </div>
 
   <br>
