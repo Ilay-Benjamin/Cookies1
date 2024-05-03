@@ -248,6 +248,7 @@ function check() {
 
 document.addEventListener("DOMContentLoaded", function() {
   console.log("DOM fully loaded and parsed");
+  loadHTMLElements();
   enterHandler();
   loadUser();
   nameButton.addEventListener("click", nameHandler);
