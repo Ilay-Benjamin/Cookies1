@@ -219,7 +219,7 @@ async function heyServerHandler() {
 }
 
 function contactHandler() {
-  alert("Contact: " + contactInput.value);
+  console.log("Contact: " + contactInput.value);
   sendContactMessage();
 }
 
