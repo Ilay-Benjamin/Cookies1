@@ -67,6 +67,16 @@ class Section {
 }
 
 
+// Cookies Manager Object
+var cManager;
+
+// Name Section Object
+var nameSect;
+
+// Note Section Object
+var noteSect;
+
+
 
 // Shake Element Function (Animation)
 function shakeElement(element) {
@@ -260,23 +270,6 @@ function check() {
 }
 
 
-
-// Load HTML Elements
-
-
-// Log when the DOM is fully loaded and parsed
-
-
-// Cookies Manager Object
-var cManager;
-
-// Name Section Object
-var nameSect;
-
-// Note Section Object
-var noteSect;
-
-// Request enter action from server
 
 export function init() {
   loadHTMLElements();
