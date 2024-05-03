@@ -280,11 +280,11 @@ var noteSect;
 
 export function init() {
   loadHTMLElements();
+  loadHandlers();
   console.log("DOM fully loaded and parsed");
   cManager = new CookiesManager();
   nameSect = new Section(Section.NAME);
   noteSect = new Section(Section.NOTE);
-  loadHandlers();
   enterHandler();
   loadUser();
 }
