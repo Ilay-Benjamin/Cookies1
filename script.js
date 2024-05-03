@@ -189,6 +189,7 @@ function addMessage(message) {
 }
 
 async function sendContactMessage(message) {
+  console.log(JSON.stringify(contactInput))
   var contact = contactInput.value;
   console.log("Contact: " + contact);
   if (contact !== "") {
@@ -196,6 +197,7 @@ async function sendContactMessage(message) {
     var data = await response.json();
     var message = data.message;
     addMessage(message);
+    contact.value = "";
   } else {
     console.error("Contact is empty");
     shakeElement(contactInput);
@@ -244,9 +246,7 @@ async function heyServerHandler() {
 }
 
 function contactHandler() {
-  sendContactMessage(contactInput.value).then(() => {
-    contactInput.value = "";
-  });
+  sendContactMessage(contactInput.value);
 }
 
 async function enterHandler() {
