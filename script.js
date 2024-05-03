@@ -200,8 +200,9 @@ async function sendContactMessage(message) {
         action: "contact",
         message: contact
       },
-      success: function(data) {
-        console.log(data);
+      success: function(output) {
+        console.log(output);
+        var data = JSON.parse(output);
         var message = data.message;
         addMessage(message);
         //contact.value = "";
