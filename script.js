@@ -95,7 +95,11 @@ class Section {
 // Section Factory Class
 class SectionFactory {
   static ERROR_SECTION() {
-    return new Section(Section.ERROR, "Error", null, null);
+    return new Section(Section.ERROR, "Error", {
+      div: null,
+      input: null,
+      button: null
+    }, null);
   }
 
   static NAME_SECTION() {
