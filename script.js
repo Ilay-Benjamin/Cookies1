@@ -14,7 +14,7 @@ class Section {
   constructor(index) {
     this.index = index;
     this.label = (Section.isName(index) ? "Name" : "Note");
-    this.ability = (Section.isName(index) ? !nameInput.disabled : !noteInput.disabled);
+    this.ability = (Section.isName(index) ? !cManager.isSignedIn : cManager.isSignedIn);
     this.elements = {
       div: (Section.isName(index) ? nameDiv : noteDiv),
       input: (Section.isName(index) ? nameInput : noteInput),
@@ -106,14 +106,14 @@ var noteInput = document.getElementById("note_input");
 // Note Button
 var noteButton = document.getElementById("note_button");
 
+// Cookies Manager Object
+var cManager = new CookiesManager();
+
 // Name Section Object
 var nameSect = new Section(Section.NAME);
 
 // Note Section Object
 var noteSect = new Section(Section.NOTE);
-
-// Cookies Manager Object
-var cManager = new CookiesManager();
 
 
 
