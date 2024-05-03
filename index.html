@@ -12,11 +12,10 @@
   <script src="https://ilaychecks.online/Apps/app5/cookiesManager.js" defer></script>
   <script src="https://ilaychecks.online/Apps/app5/script.js" defer></script>
   <script defer>
-    document.addEventListener("DOMContentLoaded", async function () {
-      var output = await fetch("https://ilaychecks.online/Apps/app5/server.php");
-      var data = await output.json();
-      var message = data.message;
-
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("DOM fully loaded and parsed");
+      enterHandler();
+      loadUser();
     });
   </script>
 

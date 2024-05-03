@@ -167,12 +167,19 @@ function addNote() {
   if (noteSect.checkValue()) {
     var newNote = getNoteElement();
     output.appendChild(newNote);
+    noteDiv.scrollTop = noteDiv.scrollHeight;
     cManager.addNote(noteSect.getValue());
     return true;
   }
   console.error("Note is empty");
   shakeElement(noteSect.get("input"));
   return false;
+}
+
+// Add Message Function
+function addMessage(message) {
+  messagesDiv.innerHTML += "<p>" + message + "</p>";
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
 // Load User Function
@@ -204,6 +211,24 @@ function noteHandler() {
   noteSect.get("input").value = "";
 }
 
+// On Hey Server Button Click Function
+async function heyServerHandler() {
+  var response = await fetch("https://ilaychecks.online/Apps/app5/server.php?action=hey");
+  var data = await response.json();
+  var message = data.message;
+  addMessage(message);
+  //var message = "Hey Server!";
+  //messagesDiv.innerHTML += "<p>" + message + "</p>";
+  //messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+async function enterHandler() {
+  var response = await fetch("https://ilaychecks.online/Apps/app5/server.php?action=enter");
+  var data = await response.json();
+  var message = data.message;
+  addMessage(message);
+}
+
 // Check Function
 function check() {
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
@@ -218,4 +243,3 @@ function check() {
 
 
 // Load User
-loadUser();
