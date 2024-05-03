@@ -190,7 +190,8 @@ function addMessage(message) {
 
 async function sendContactMessage(message) {
   var contact = contactInput.value;
-  if (contact) {
+  console.log("Contact: " + contact);
+  if (contact !== "") {
     var response = await fetch("https://ilaychecks.online/Apps/app5/server.php?action=contact&contact=" + contact);
     var data = await response.json();
     var message = data.message;
