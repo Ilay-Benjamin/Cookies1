@@ -280,9 +280,9 @@ function check() {
 }
 
 
-console.log("DOM fully loaded and parsed");
-enterHandler();
-loadUser();
-document.getElementById("c_input").value = "adgf";
-
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM fully loaded and parsed");
+  enterHandler();
+  loadUser();
+});
 // Load User
