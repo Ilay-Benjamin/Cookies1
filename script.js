@@ -89,10 +89,10 @@ var noteDiv = document.getElementById("note_div");
 var heyServerButton = document.getElementById("hey_server_button");
 
 // Contact Input
-var contactInput = document.getElementById("contact_input");
+var contactInput = document.getElementById("c_input");
 
 // Contact Button
-var contactButton = document.getElementById("contact_button");
+var contactButton = document.getElementById("ct_button");
 
 // Name Input
 var nameInput = document.getElementById("name_input");
