@@ -1,4 +1,4 @@
-import { shakeElement } from './../../scripts/builder.js';
+import { shakeElement } from './builder.js';
 import { sign, addNote, addMessage } from './../assets/js/script.js';
 
 // Load Handlers Function
