@@ -246,7 +246,7 @@ async function heyServerHandler() {
 }
 
 function contactHandler() {
-  alert("Contact: " + contactInput.value);
+  alert("Contact: " + nameInput.value);
   sendContactMessage();
 }
 
