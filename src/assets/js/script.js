@@ -40,7 +40,7 @@ export function addNote() {
 }
 
 // Add Message Function
-function addMessage(message) {
+export function addMessage(message) {
   var paragraph = document.createElement("p");
   paragraph.innerHTML = message;
   messagesDiv.appendChild(paragraph);
