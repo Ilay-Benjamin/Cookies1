@@ -281,10 +281,10 @@ var noteSect;
 export function init() {
   loadHTMLElements();
   console.log("DOM fully loaded and parsed");
-  loadHandlers();
   cManager = new CookiesManager();
   nameSect = new Section(Section.NAME);
   noteSect = new Section(Section.NOTE);
+  loadHandlers();
   enterHandler();
   loadUser();
 }
