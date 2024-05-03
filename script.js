@@ -144,7 +144,7 @@ class SectionFactory {
 
 
 // Cookies Manager Object
-cManager = new CookiesManager();
+var cManager = new CookiesManager();
 
 
 // Shake Element Function (Animation)
