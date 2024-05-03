@@ -147,8 +147,8 @@ function getNoteElement() {
 }
 
 // Sign In/Out Function
-function sign(
-  toSignIn) {
+function sign(toSignIn) {
+  console.log("toSignIn: " + toSignIn);
   if (toSignIn) {
     if (nameSect.checkValue()) {
       nameSect.setAbility(true);
@@ -281,9 +281,4 @@ function check() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  console.log("DOM fully loaded and parsed");
-  enterHandler();
-  loadUser();
-});
-// Load User
+
