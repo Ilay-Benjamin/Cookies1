@@ -245,14 +245,6 @@ function check() {
   details.innerHTML += "<br> <strong>" + "- - - - - - - - - - - - - - - - - - - - - - - -" + "</strong> <br>";
 }
 
-
-document.addEventListener("DOMContentLoaded", function() {
-  console.log("DOM fully loaded and parsed");
-  enterHandler();
-  loadUser();
-  nameButton.addEventListener("click", nameHandler);
-  noteButton.addEventListener("click", noteHandler);
-  heyServerButton.addEventListener("click", heyServerHandler);
-  contactButton.addEventListener("click", contactHandler);
-  //check();
-});
+console.log("DOM fully loaded and parsed");
+enterHandler();
+loadUser();
