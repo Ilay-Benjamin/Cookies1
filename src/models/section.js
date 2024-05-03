@@ -61,7 +61,9 @@
     }
   
     setAbility(toDisabled) {
+      console.log("< " + this.label + " - setAbility() > toDisabled: " + toDisabled);
       this.ability = !toDisabled;
+      console.log("< " + this.label + " - setAbility() > this.ability: " + this.ability);
       this.get("input").disabled = toDisabled;
       if (toDisabled) {
         if (this.isNote()) {
@@ -82,6 +84,8 @@
           this.get("button").disabled = false;
         }
       }
+      console.log("< " + this.label + " > input.disabled: " + this.get("input").disabled);
+      console.log("< " + this.label + " > button.disabled: " + this.get("button").disabled);
     }
   
     getValue() {
