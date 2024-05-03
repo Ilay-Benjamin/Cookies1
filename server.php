@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 function contact() {
     if (isset($_POST['message']) && strlen($_POST['message']) > 0) {
-        $message = "Hey " . $_SESSION['username'] . ", Thank you for contacting us! We will get back to you soon!";
+        $usernameAsString = $_SESSION['username'] ?? 'Guest';
+        $message = "Hey " . $usernameAsString . ", Thank you for contacting us! We will get back to you soon!";
         $data = new stdClass();
         $data->message = $message;
         $json = json_encode($data);
