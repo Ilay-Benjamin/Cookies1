@@ -242,8 +242,8 @@ async function heyServerHandler() {
   //messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-function contactHandler() {
-  sendContactMessage(contactInput.value);
+async function contactHandler() {
+  await sendContactMessage(contactInput.value);
   contactInput.value = "";
 }
 
