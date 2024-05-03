@@ -154,7 +154,6 @@ function addMessage(message) {
 }
 
 async function sendContactMessage(message) {
-  console.log(JSON.stringify(contactInput))
   var contact = contactInput.value;
   console.log("Contact: " + contact);
   if (contact !== "") {
@@ -168,7 +167,7 @@ async function sendContactMessage(message) {
       success: function(output) {
         console.log(output);
         var data = JSON.parse(output);
-        var message = data.message;
+        var message = data.message + "\n" + " (Msg: " + contact + ") ";
         addMessage(message);
         //contact.value = "";
       },
@@ -233,6 +232,10 @@ async function enterHandler() {
 }
 
 
+// Check2 Function
+function check2() {
+  contactInput.value = "Ilayyyyyyy";
+}
 
 // Check Function
 function check() {
