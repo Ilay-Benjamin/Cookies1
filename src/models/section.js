@@ -84,8 +84,8 @@
           this.get("button").disabled = false;
         }
       }
-      console.log("< " + this.label + " > input.disabled: " + this.get("input").disabled);
-      console.log("< " + this.label + " > button.disabled: " + this.get("button").disabled);
+      console.log("< " + this.label + " - setAbility() > input.disabled: " + this.get("input").disabled);
+      console.log("< " + this.label + " - setAbility() > button.disabled: " + this.get("button").disabled);
     }
   
     getValue() {
@@ -107,7 +107,7 @@
         div: null,
         input: null,
         button: null
-      }, null);
+      }, false);
     }
   
     static NAME_SECTION() {
