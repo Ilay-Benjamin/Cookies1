@@ -4,7 +4,7 @@ import { Section, SectionFactory } from './../../models/section.js';
 import { shakeElement, buildNoteElement } from './../../scripts/builder.js';
 
 // Sign In/Out Function
-function sign(toSignIn) {
+export function sign(toSignIn) {
   console.log("toSignIn: " + toSignIn);
   if (toSignIn) {
     if (nameSect.checkValue()) {
@@ -26,7 +26,7 @@ function sign(toSignIn) {
 }
 
 // Add Note Function
-function addNote() {
+export function addNote() {
   if (noteSect.checkValue()) {
     var newNote = buildNoteElement(noteSect.getValue(), nameSect.getValue());
     output.appendChild(newNote);
@@ -47,6 +47,7 @@ function addMessage(message) {
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 } 
 
+// Load Notes Function
 function loadNotes() {
   if (!cManager.isNotesEmpty()) {
     var name = (cManager.isSignedIn()) ? cManager.getUsername() : "Guest";
