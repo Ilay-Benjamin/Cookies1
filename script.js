@@ -40,7 +40,7 @@ class Section {
   constructor(index, label, elements, ability) {
     this.index = index;
     this.label = label;
-    this.elements elements
+    this.elements = elements
     if (ability === null) {
       this.ability = false;
     } else {
