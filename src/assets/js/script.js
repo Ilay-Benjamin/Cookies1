@@ -1,4 +1,3 @@
-import { loadHandlers } from './../../scripts/formHandling.js';
 import { CookiesManager } from './../../models/cookiesManager.js';
 import { Section, SectionFactory } from './../../models/section.js';
 import { shakeElement, buildNoteElement } from './../../scripts/builder.js';
@@ -70,20 +69,10 @@ function loadUser() {
   return (cManager.isSignedIn());
 }
 
-function loadHandlers() {
-  nameSect.get("button").addEventListener("click", enterHandler);
-  noteSect.get("button").addEventListener("click", addNote);
-  heyServerButton.addEventListener("click", heyServerHandler);
-  contactButton.addEventListener("click", contactHandler);
-}
-
-
-
 // Initialize Function
 export function init() {
   cManager = new CookiesManager();
   loadHTMLElements();
-  loadHandlers();
   console.log("DOM fully loaded and parsed");
   nameSect = SectionFactory.NAME_SECTION();
   noteSect = SectionFactory.NOTE_SECTION();
