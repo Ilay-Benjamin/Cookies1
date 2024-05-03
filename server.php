@@ -1,8 +1,9 @@
 <?php
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['action'])) {
-        match ($params['action']) {
+        match ($_GET['action']) {
             'enter' => enter(),
             'hey' => hey(),
             default => die('Invalid action'),
@@ -10,15 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
-        match ($params['action']) {
+        match ($_POST['action']) {
             'logout' => logout(),
             'login' => login(),
             default => die('Invalid action'),
         };
     }
 }
-
-
 
 
 
