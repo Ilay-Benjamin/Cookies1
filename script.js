@@ -242,9 +242,10 @@ async function heyServerHandler() {
   //messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-async function contactHandler() {
-  await sendContactMessage(contactInput.value);
-  contactInput.value = "";
+function contactHandler() {
+  sendContactMessage(contactInput.value).then(() => {
+    contactInput.value = "";
+  });
 }
 
 async function enterHandler() {
