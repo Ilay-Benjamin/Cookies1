@@ -14,9 +14,19 @@ export function shakeElement(element) {
 }
   
 // Build Note Element Function
-export function buildNoteElement(value, name) {
+export function appendNoteElement(value, name) {
   var newNote = document.createElement("p");
   newNote.innerHTML = "<span><strong>" + name + "</strong></span>: " + value;
-  return newNote;
+  output.appendChild(newNote);
+  noteDiv.scrollTop = noteDiv.scrollHeight;
 }
+
+
+// Add Message Function
+export function appendMessageElement(message) {
+  var newMessage = document.createElement("p");
+  newMessage.innerHTML = message;
+  messagesDiv.appendChild(newMessage);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+} 
 

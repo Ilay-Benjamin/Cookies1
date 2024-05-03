@@ -1,13 +1,5 @@
-import { shakeElement } from './builder.js';
+import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote, addMessage } from './../assets/js/script.js';
-
-// Load Handlers Function
-export function loadHandlers() {
-
-
-} 
-
-
 
 // Name Handler Function
 export function nameHandler() {
@@ -26,7 +18,7 @@ export async function heyServerHandler() {
     var response = await fetch("https://ilaychecks.online/Apps/app5/server/app/server.php?action=hey");
     var data = await response.json();
     var message = data.message;
-    addMessage(message);
+    appendMessageElement(message);
     //var message = "Hey Server!";
     //messagesDiv.innerHTML += "<p>" + message + "</p>";
     //messagesDiv.scrollTop = messagesDiv.scrollHeight;
@@ -49,7 +41,7 @@ export async function contactHandler() {
           console.log(output);
           var data = JSON.parse(output);
           var message = data.message + "\n" + " (Msg: " + contact + ") ";
-          addMessage(message);
+          appendMessageElement(message);
           //contact.value = "";
         },
       });

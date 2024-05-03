@@ -1,6 +1,6 @@
 import { CookiesManager } from './../../models/cookiesManager.js';
 import { Section, SectionFactory } from './../../models/section.js';
-import { shakeElement, buildNoteElement } from './../../scripts/builder.js';
+import { shakeElement, buildNoteElement, appendNoteElement } from './../../scripts/builder.js';
 import { enter } from './../../services/enterService.js';
 
 // Sign In/Out Function
@@ -28,9 +28,7 @@ export function sign(toSignIn) {
 // Add Note Function
 export function addNote() {
   if (noteSect.checkValue()) {
-    var newNote = buildNoteElement(noteSect.getValue(), nameSect.getValue());
-    output.appendChild(newNote);
-    noteDiv.scrollTop = noteDiv.scrollHeight;
+    appendNoteElement(noteSect.getValue(), nameSect.getValue());
     cManager.addNote(noteSect.getValue());
     return true;
   }
@@ -39,21 +37,13 @@ export function addNote() {
   return false;
 }
 
-// Add Message Function
-export function addMessage(message) {
-  var paragraph = document.createElement("p");
-  paragraph.innerHTML = message;
-  messagesDiv.appendChild(paragraph);
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-} 
 
 // Load Notes Function
 function loadNotes() {
   if (!cManager.isNotesEmpty()) {
     var name = (cManager.isSignedIn()) ? cManager.getUsername() : "Guest";
     for (var n of cManager.getNotes()) {
-      var e = buildNoteElement(n, name);
-      output.appendChild(e);
+      appendNoteElement(n, name);
     }
   }
 }
