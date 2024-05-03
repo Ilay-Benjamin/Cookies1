@@ -37,19 +37,19 @@ export function loadHandlers() {
 
 
 // Name Handler Function
-function nameHandler() {
+export function nameHandler() {
     console.log("< nameHandler > nameSect.ability: " + nameSect.ability);
     sign(nameSect.ability);
 }
 
 // Note Handler Function
-function noteHandler() {
+export function noteHandler() {
     addNote();
     noteSect.get("input").value = "";
 }
 
 // Hey Server Handler Function
-async function heyServerHandler() {
+export async function heyServerHandler() {
     var response = await fetch("https://ilaychecks.online/Apps/app5/server/app/server.php?action=hey");
     var data = await response.json();
     var message = data.message;
@@ -60,7 +60,7 @@ async function heyServerHandler() {
 }
 
 // Contact Handler Function
-async function contactHandler() {
+export async function contactHandler() {
     console.log("Contact: " + contactInput.value);
     var contact = contactInput.value;
     console.log("Contact: " + contact);
@@ -87,7 +87,7 @@ async function contactHandler() {
 }
 
 // Enter Handler Function
-async function enterHandler() {
+export async function enterHandler() {
     var response = await fetch("https://ilaychecks.online/Apps/app5/server/app/server.php?action=enter");
     var data = await response.json();
     var message = data.message;
@@ -95,12 +95,12 @@ async function enterHandler() {
 }
 
 // Check2 Function
-function check2() {
+export function check2() {
     contactInput.value = "Ilayyyyyyy";
 }
 
 // Check Function
-function check() {
+export function check() {
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
   details.innerHTML += "username: " + cManager.getUsername() + "<br>";
   details.innerHTML += "isNotesEmpty: " + cManager.isNotesEmpty() + "<br>";

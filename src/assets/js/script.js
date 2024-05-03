@@ -1,4 +1,4 @@
-import { loadHandlers } from './../../scripts/formHandling.js';
+import { loadHandlers, enterHandler } from './../../scripts/formHandling.js';
 import { CookiesManager } from './../../models/cookiesManager.js';
 import { Section, SectionFactory } from './../../models/section.js';
 import { shakeElement, buildNoteElement } from './../../scripts/builder.js';
