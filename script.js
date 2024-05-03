@@ -70,41 +70,6 @@ class Section {
 
 
 
-// Details Div
-var details = document.getElementById("details");
-
-// Output Div
-var output = document.getElementById("output");
-
-// Messages Div
-var messagesDiv = document.getElementById("messages_div");
-
-// Name Div
-var nameDiv = document.getElementById("name_div");
-
-// Note Div
-var noteDiv = document.getElementById("note_div");
-
-// Hey Server Button
-var heyServerButton = document.getElementById("hey_server_button");
-
-// Contact Input
-var contactInput = document.getElementById("c_input");
-
-// Contact Button
-var contactButton = document.getElementById("c_button");
-
-// Name Input
-var nameInput = document.getElementById("name_input");
-
-// Name Button
-var nameButton = document.getElementById("name_button");
-
-// Note Input
-var noteInput = document.getElementById("note_input");
-
-// Note Button
-var noteButton = document.getElementById("note_button");
 
 // Cookies Manager Object
 var cManager = new CookiesManager();
@@ -281,4 +246,13 @@ function check() {
 }
 
 
-
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM fully loaded and parsed");
+  enterHandler();
+  loadUser();
+  nameButton.addEventListener("click", nameHandler);
+  noteButton.addEventListener("click", noteHandler);
+  heyServerButton.addEventListener("click", heyServerHandler);
+  contactButton.addEventListener("click", contactHandler);
+  //check();
+});
