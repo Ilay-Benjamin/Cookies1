@@ -197,7 +197,7 @@ async function sendContactMessage(message) {
     addMessage(message);
   } else {
     console.error("Contact is empty");
-    shakeElement(contactInput);
+    shakeElement(contactButton);
   }
 }
 
