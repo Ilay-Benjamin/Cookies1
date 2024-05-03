@@ -200,7 +200,7 @@ function loadUser() {
 
 // On Name Button Click Function
 function nameHandler() {
-  sign(nameSect.ability);
+  sign(!nameSect.ability);
 }
 
 // On Note Button Click Function
