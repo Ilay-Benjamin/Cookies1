@@ -70,7 +70,6 @@ class Section {
 
 
 
-
 // Cookies Manager Object
 var cManager = new CookiesManager();
 
