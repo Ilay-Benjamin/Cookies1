@@ -97,21 +97,25 @@ async function sendContactMessage(message) {
   }
 }
 
+function loadNotes() {
+  if (!cManager.isNotesEmpty()) {
+    var name = (cManager.isSignedIn()) ? cManager.getUsername() : "Guest";
+    for (var n of cManager.getNotes()) {
+      var e = buildNoteElement(n, name);
+      output.appendChild(e);
+    }
+  }
+}
+
 // Load User Function
 function loadUser() {
   if (cManager.isSignedIn()) {
     console.log("User is signed in");
     nameSect.get("input").value = cManager.getUsername();
     nameSect.get("button").click();
-    if (!cManager.isNotesEmpty()) {
-      for (var n of cManager.getNotes()) {
-        var e = buildNoteElement(n, cManager.getUsername());
-        output.appendChild(e);
-      }
-    }
-    return true;
-  }
-  return false;
+  } 
+  loadNotes();
+  return (cManager.isSignedIn());
 }
 
 
