@@ -41,7 +41,7 @@ class Section {
     this.index = index;
     this.label = label;
     this.elements = elements
-    if (ability === null) {
+    if (index == Section.ERROR) {
       this.ability = false;
     } else {
       this.setAbility(this.ability);
