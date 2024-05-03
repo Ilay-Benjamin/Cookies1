@@ -219,6 +219,29 @@ async function enterHandler() {
   addMessage(message);
 }
 
+function loadHandlers() {
+  $('#check_btn').on('click', () => {
+    console.log('check_btn clicked');
+    check();
+  });
+  $('#hey_server_button').on('click', () => {
+      console.log('hey_server_button clicked');
+      heyServerHandler();
+  });
+  $('#c_button').on('click', () => {
+      console.log('c_button clicked');
+      contactHandler();
+  });
+  $('#name_button').on('click', () => {
+      console.log('name_button clicked');
+      nameHandler();
+  });
+  $('#note_button').on('click', () => {
+      console.log('note_button clicked');
+      noteHandler();
+  });
+} 
+
 
 // Check2 Function
 function check2() {
@@ -258,6 +281,7 @@ var noteSect;
 export function init() {
   loadHTMLElements();
   console.log("DOM fully loaded and parsed");
+  loadHandlers();
   cManager = new CookiesManager();
   nameSect = new Section(Section.NAME);
   noteSect = new Section(Section.NOTE);
