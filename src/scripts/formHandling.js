@@ -1,5 +1,5 @@
 import { shakeElement, appendMessageElement } from './builder.js';
-import { sign, addNote, addMessage } from './../assets/js/script.js';
+import { sign, addNote } from './../assets/js/script.js';
 
 // Name Handler Function
 export function nameHandler() {
