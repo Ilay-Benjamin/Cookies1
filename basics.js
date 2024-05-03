@@ -35,6 +35,12 @@ var noteInput;
 // Note Button
 var noteButton;
 
+// Name Section Object
+var nameSect;
+
+// Note Section Object
+var noteSect;
+
 
 function loadHTMLElements() {
     // Details Div

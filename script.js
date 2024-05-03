@@ -144,14 +144,7 @@ class SectionFactory {
 
 
 // Cookies Manager Object
-var cManager = new CookiesManager();
-
-// Name Section Object
-var nameSect = SectionFactory.ERROR_SECTION();
-
-// Note Section Object
-var noteSect = SectionFactory.ERROR_SECTION();
-
+cManager = new CookiesManager();
 
 
 // Shake Element Function (Animation)
