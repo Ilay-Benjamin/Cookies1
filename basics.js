@@ -1,39 +1,39 @@
     
 // Details Div
-var details = document.getElementById("details");
+var details;
 
 // Output Div
-var output = document.getElementById("output");
+var output;
 
 // Messages Div
-var messagesDiv = document.getElementById("messages_div");
+var messagesDiv;
 
 // Name Div
-var nameDiv = document.getElementById("name_div");
+var nameDiv;
 
 // Note Div
-var noteDiv = document.getElementById("note_div");
+var noteDiv;
 
 // Hey Server Button
-var heyServerButton = document.getElementById("hey_server_button");
+var heyServerButton;
 
 // Contact Input
-var contactInput = document.getElementById("c_input");
+var contactInput;
 
 // Contact Button
-var contactButton = document.getElementById("c_button");
+var contactButton;
 
 // Name Input
-var nameInput = document.getElementById("name_input");
+var nameInput;
 
 // Name Button
-var nameButton = document.getElementById("name_button");
+var nameButton;
 
 // Note Input
-var noteInput = document.getElementById("note_input");
+var noteInput;
 
 // Note Button
-var noteButton = document.getElementById("note_button");
+var noteButton;
 
 
 
