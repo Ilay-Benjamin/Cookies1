@@ -103,7 +103,6 @@ var nameButton = document.getElementById("name_button");
 // Note Input
 var noteInput = document.getElementById("note_input");
 
-
 // Note Button
 var noteButton = document.getElementById("note_button");
 
@@ -189,6 +188,20 @@ function addMessage(message) {
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
+async function sendContactMessage(message) {
+  var contact = contactInput.value;
+  if (contact) {
+    var response = await fetch("https://ilaychecks.online/Apps/app5/server.php?action=contact&contact=" + contact);
+    var data = await response.json();
+    var message = data.message;
+    addMessage(message);
+  } else {
+    console.error("Contact is empty");
+    shakeElement(contactInput);
+  }
+}
+
+
 // Load User Function
 function loadUser() {
   if (cManager.isSignedIn()) {
@@ -229,12 +242,9 @@ async function heyServerHandler() {
   //messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-async function contactHandler() {
-  var contact = contactInput.value;
-  var response = await fetch("https://ilaychecks.online/Apps/app5/server.php?action=contact&contact=" + contact);
-  var data = await response.json();
-  var message = data.message;
-  addMessage(message);
+function contactHandler() {
+  sendContactMessage(contactInput.value);
+  contactInput.value = "";
 }
 
 async function enterHandler() {
