@@ -14,13 +14,12 @@ class Section {
   constructor(index) {
     this.index = index;
     this.label = (Section.isName(index) ? "Name" : "Note");
-    this.ability = false;
-    this.setAbility( (Section.isName(index) ? cManager.isSignedIn : !cManager.isSignedIn));
     this.elements = {
       div: (Section.isName(index) ? nameDiv : noteDiv),
       input: (Section.isName(index) ? nameInput : noteInput),
       button: (Section.isName(index) ? nameButton : noteButton)
     };
+    this.setAbility((Section.isName(index) ? cManager.isSignedIn : !cManager.isSignedIn));
   }
 
   get(element) {
