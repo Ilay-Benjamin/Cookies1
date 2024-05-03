@@ -1,51 +1,9 @@
-    
-// Details Div
-var details;
-
-// Output Div
-var output;
-
-// Messages Div
-var messagesDiv;
-
-// Name Div
-var nameDiv;
-
-// Note Div
-var noteDiv;
-
-// Hey Server Button
-var heyServerButton;
-
-// Contact Input
-var contactInput;
-
-// Contact Button
-var contactButton;
-
-// Name Input
-var nameInput;
-
-// Name Button
-var nameButton;
-
-// Note Input
-var noteInput;
-
-// Note Button
-var noteButton;
-
-// Name Section Object
-var nameSect;
-
-// Note Section Object
-var noteSect;
-
-// Cookie Manager Object
-var cManager;
+import { CookieManager } from "./../src/models/cookiesManager";
 
 
-function loadHTMLElements() {
+
+// Initialize Function
+export function loadHTMLElements() {
 
     // Details Div
     details = document.getElementById("details");
@@ -87,5 +45,23 @@ function loadHTMLElements() {
 
 
 
+// Start Cookies Manager Function 
+export function startCookiesManager() {
+
+    // Cookie Manager Object
+    cManager = new CookieManager();
+
+}
 
 
+
+// Initialize Sections Function
+export function initializeSections() {
+
+    // Name Section
+    nameSect = Section.NAME_SECTION();
+
+    // Note Section
+    noteSect = Section.NOTE_SECTION();
+
+}

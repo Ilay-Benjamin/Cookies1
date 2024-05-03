@@ -60,11 +60,7 @@ function loadUser() {
 
 // Initialize Function
 export function init() {
-  cManager = new CookiesManager();
-  loadHTMLElements();
   console.log("DOM fully loaded and parsed");
-  nameSect = SectionFactory.NAME_SECTION();
-  noteSect = SectionFactory.NOTE_SECTION();
   enter((data) => appendMessageElement(data.message));
   loadUser();
   loadNotes();
