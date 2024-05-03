@@ -137,7 +137,9 @@ function addNote() {
 
 // Add Message Function
 function addMessage(message) {
-  messagesDiv.innerHTML += "<p>" + message + "</p>";
+  var paragraph = document.createElement("p");
+  paragraph.innerHTML = message;
+  messagesDiv.appendChild(paragraph);
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
