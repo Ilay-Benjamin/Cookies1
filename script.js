@@ -70,17 +70,6 @@ class Section {
 
 
 
-// Cookies Manager Object
-var cManager = new CookiesManager();
-
-// Name Section Object
-var nameSect = new Section(Section.NAME);
-
-// Note Section Object
-var noteSect = new Section(Section.NOTE);
-
-
-
 // Shake Element Function (Animation)
 function shakeElement(element) {
   if (element) {
@@ -247,6 +236,25 @@ function check() {
   details.innerHTML += "<br> <strong>" + "- - - - - - - - - - - - - - - - - - - - - - - -" + "</strong> <br>";
 }
 
+
+
+// Load HTML Elements
+loadHTMLElements();
+
+// Log when the DOM is fully loaded and parsed
 console.log("DOM fully loaded and parsed");
+
+// Cookies Manager Object
+var cManager = new CookiesManager();
+
+// Name Section Object
+var nameSect = new Section(Section.NAME);
+
+// Note Section Object
+var noteSect = new Section(Section.NOTE);
+
+// Request enter action from server
 enterHandler();
+
+// Load User
 loadUser();
