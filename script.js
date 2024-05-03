@@ -92,7 +92,7 @@ var heyServerButton = document.getElementById("hey_server_button");
 var contactInput = document.getElementById("c_input");
 
 // Contact Button
-var contactButton = document.getElementById("ct_button");
+var contactButton = document.getElementById("c_button");
 
 // Name Input
 var nameInput = document.getElementById("name_input");
