@@ -255,7 +255,6 @@ async function heyServerHandler() {
 }
 
 function contactHandler() {
-  contactInput.value = "Hello, World!";
   alert("Contact: " + contactInput.value);
   sendContactMessage();
 }
