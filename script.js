@@ -73,11 +73,11 @@ class Section {
 // Details Div
 var details = document.getElementById("details");
 
+// Output Div
+var output = document.getElementById("output");
+
 // Messages Div
 var messagesDiv = document.getElementById("messages_div");
-
-// Hey Server Button
-var heyServerButton = document.getElementById("hey_server_button");
 
 // Name Div
 var nameDiv = document.getElementById("name_div");
@@ -85,17 +85,24 @@ var nameDiv = document.getElementById("name_div");
 // Note Div
 var noteDiv = document.getElementById("note_div");
 
-// Output Div
-var output = document.getElementById("output");
+// Hey Server Button
+var heyServerButton = document.getElementById("hey_server_button");
+
+// Contact Input
+var contactInput = document.getElementById("contact_input");
+
+// Contact Button
+var contactButton = document.getElementById("contact_button");
 
 // Name Input
 var nameInput = document.getElementById("name_input");
 
+// Name Button
+var nameButton = document.getElementById("name_button");
+
 // Note Input
 var noteInput = document.getElementById("note_input");
 
-// Name Button
-var nameButton = document.getElementById("name_button");
 
 // Note Button
 var noteButton = document.getElementById("note_button");
@@ -220,6 +227,14 @@ async function heyServerHandler() {
   //var message = "Hey Server!";
   //messagesDiv.innerHTML += "<p>" + message + "</p>";
   //messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+async function contactHandler() {
+  var contact = contactInput.value;
+  var response = await fetch("https://ilaychecks.online/Apps/app5/server.php?action=contact&contact=" + contact);
+  var data = await response.json();
+  var message = data.message;
+  addMessage(message);
 }
 
 async function enterHandler() {

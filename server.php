@@ -14,12 +14,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         match ($_POST['action']) {
             'logout' => logout(),
             'login' => login(),
+            'contact' => contact(),
             default => die('Invalid action'),
         };
     }
 }
 
 
+function contact() {
+    if (isset($_POST['message']) && strlen($_POST['message']) > 0) {
+        $message = "Hey " . $_SESSION['username'] . ", Thank you for contacting us! We will get back to you soon!";
+        $data = new stdClass();
+        $data->message = $message;
+        $json = json_encode($data);
+        echo $json;
+    } else {
+        echo 'Invalid message';
+    }
+}
 
 function hey() {
     $usernameAsString = $_SESSION['username'] ?? 'Guest';
