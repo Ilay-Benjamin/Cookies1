@@ -6,13 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         match ($_GET['action']) {
             'enter' => enter(),
             'hey' => hey(),
+            'logout' => logout(),
             default => die('Invalid action'),
         };
     }
 } else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         match ($_POST['action']) {
-            'logout' => logout(),
             'login' => login(),
             'contact' => contact(),
             default => die('Invalid action'),

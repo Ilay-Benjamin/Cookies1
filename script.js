@@ -1,5 +1,3 @@
-//alert("fjdj");
-
 
 // Section class
 class Section {
@@ -241,22 +239,29 @@ function check() {
 
 
 // Load HTML Elements
-loadHTMLElements();
+
 
 // Log when the DOM is fully loaded and parsed
-console.log("DOM fully loaded and parsed");
+
 
 // Cookies Manager Object
-var cManager = new CookiesManager();
+var cManager;
 
 // Name Section Object
-var nameSect = new Section(Section.NAME);
+var nameSect;
 
 // Note Section Object
-var noteSect = new Section(Section.NOTE);
+var noteSect;
 
 // Request enter action from server
-enterHandler();
 
-// Load User
-loadUser();
+export function init() {
+  loadHTMLElements();
+  console.log("DOM fully loaded and parsed");
+  cManager = new CookiesManager();
+  nameSect = new Section(Section.NAME);
+  noteSect = new Section(Section.NOTE);
+  enterHandler();
+  loadUser();
+}
+

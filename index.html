@@ -12,6 +12,34 @@
   <script src="https://ilaychecks.online/Apps/app5/basics.js" defer></script>
   <script src="https://ilaychecks.online/Apps/app5/cookiesManager.js" defer></script>
   <script src="https://ilaychecks.online/Apps/app5/script.js" defer></script>
+  <script type="module" defer>
+    import { init}
+        from 'https://ilaychecks.online/Apps/app5/script.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded');
+            init();
+            $('#check_btn').on('click', () => {
+                console.log('check_btn clicked');
+                check();
+            });
+            $('#hey_server_button').on('click', () => {
+                console.log('hey_server_button clicked');
+                heyServerHandler();
+            });
+            $('#c_button').on('click', () => {
+                console.log('c_button clicked');
+                contactHandler();
+            });
+            $('#name_button').on('click', () => {
+                console.log('name_button clicked');
+                nameHandler();
+            });
+            $('#note_button').on('click', () => {
+                console.log('note_button clicked');
+                noteHandler();
+            });
+        });
+</script>
 
 </head>
 
@@ -21,14 +49,14 @@
   <h1>My Page</h1>
   <p>This is my page</p>
 
-  <button type="button" onclick="check();" style="display: none;">
+  <button id="check_btn" type="button" style="display: none;">
     Load User
   </button>
 
   <button id="hey_server_button" style="
     background-color: rgb(0, 17, 169);
     color: white;
-    margin: 0;" type="button" onclick="heyServerHandler();">
+    margin: 0;" type="button">
   Hey Server
   </button>
 
@@ -46,7 +74,7 @@
     <button id="name_button" style="
         background-color: green;
         color: white;
-        margin: 7px;" type="button" onclick="nameHandler();">
+        margin: 7px;" type="button">
       Log-In
     </button>
   </div>
@@ -60,7 +88,7 @@
       Note
     </label>
     <input id="note_input" type="text" placeholder="Enter your note" >
-    <button id="note_button" style="margin: 7px;" onclick="noteHandler();" type="button" >
+    <button id="note_button" style="margin: 7px;" type="button" >
       Add
     </button>
   </div>
@@ -88,11 +116,10 @@
     <button id="c_button" style="
         background-color: green;
         color: white;
-        margin: 7px;" type="button" onclick="contactHandler();">
+        margin: 7px;" type="button">
       Send
     </button>
   </div>
-
 
   <br>
 
