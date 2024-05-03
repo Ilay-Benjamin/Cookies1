@@ -1,23 +1,47 @@
 
 // Section class
 class Section {
-  
+  static ERROR = -1;
   static NAME = 0;
   static NOTE = 1;
+
+  static ERROR_SECTION() {
+    return new Section(Section.ERROR, "Error", null, null);
+  }
+
+  static NAME_SECTION() {
+    var index = Section.NAME;
+    var label = "Name";
+    var elements = {
+      div: nameDiv,
+      input: nameInput,
+      button: nameButton
+    };
+    var ability = cManager.isSignedIn();
+    return new Section(index, label, elements, ability);
+  }
+
+  static NOTE_SECTION() {
+    var index = Section.NOTE;
+    var label = "Note";
+    var elements = {
+      div: noteDiv,
+      input: noteInput,
+      button: noteButton
+    };
+    var ability = !cManager.isSignedIn();
+    return new Section(index, label, elements, ability);
+  }
 
   static isName(index) {
     return index === Section.NAME;
   }
-
-  constructor(index) {
+  
+  constructor(index, label, elements, ability) {
     this.index = index;
-    this.label = (Section.isName(index) ? "Name" : "Note");
-    this.elements = {
-      div: (Section.isName(index) ? nameDiv : noteDiv),
-      input: (Section.isName(index) ? nameInput : noteInput),
-      button: (Section.isName(index) ? nameButton : noteButton)
-    };
-    this.setAbility((Section.isName(index) ? cManager.isSignedIn() : !cManager.isSignedIn()));
+    this.label = label;
+    this.elements elements
+    this.setAbility(this.ability);
   }
 
   get(element) {
@@ -67,14 +91,58 @@ class Section {
 }
 
 
+
+// Section Factory Class
+class SectionFactory {
+  static ERROR_SECTION() {
+    return new Section(Section.ERROR, "Error", null, null);
+  }
+
+  static NAME_SECTION() {
+    var index = Section.NAME;
+    var label = "Name";
+    var elements = {
+      div: nameDiv,
+      input: nameInput,
+      button: nameButton
+    };
+    var ability = cManager.isSignedIn();
+    return new Section(index, label, elements, ability);
+  }
+
+  static NOTE_SECTION() {
+    var index = Section.NOTE;
+    var label = "Note";
+    var elements = {
+      div: noteDiv,
+      input: noteInput,
+      button: noteButton
+    };
+    var ability = !cManager.isSignedIn();
+    return new Section(index, label, elements, ability);
+  }
+
+  static getSection(index) {
+    if (Section.isName(index)) {
+      return Section.NAME_SECTION();
+    }
+    if (Section.isNote(index)) {
+      return Section.NOTE_SECTION();
+    }
+    return Section.ERROR_SECTION();
+  }
+}
+
+
+
 // Cookies Manager Object
-var cManager;
+var cManager = new CookiesManager();
 
 // Name Section Object
-var nameSect;
+var nameSect = SectionFactory.ERROR_SECTION();
 
 // Note Section Object
-var noteSect;
+var noteSect = SectionFactory.ERROR_SECTION();
 
 
 
@@ -275,9 +343,9 @@ export function init() {
   loadHTMLElements();
   loadHandlers();
   console.log("DOM fully loaded and parsed");
-  cManager = new CookiesManager();
-  nameSect = new Section(Section.NAME);
-  noteSect = new Section(Section.NOTE);
+  //cManager = new CookiesManager();
+  nameSect = SectionFactory.NAME_SECTION();
+  noteSect = SectionFactory.NOTE_SECTION();
   enterHandler();
   loadUser();
 }
