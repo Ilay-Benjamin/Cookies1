@@ -1,3 +1,4 @@
+import { CookiesManager } from "./cookiesManager.js";
 
 // Section class
  export class Section {
