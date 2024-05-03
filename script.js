@@ -73,6 +73,12 @@ class Section {
 // Details Div
 var details = document.getElementById("details");
 
+// Messages Div
+var messagesDiv = document.getElementById("messages_div");
+
+// Hey Server Button
+var heyServerButton = document.getElementById("hey_server_button");
+
 // Name Div
 var nameDiv = document.getElementById("name_div");
 
