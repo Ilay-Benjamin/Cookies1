@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 function getUsername() {
-    $usernameAsString = htmlspecialchars($_COOKIE['username']);
+    $usernameAsString = isset($_COOKIE['username']) ? htmlspecialchars($_COOKIE['username']) : 'Guest';
     $data = new stdClass();
     $data->username = $usernameAsString;
     $json = json_encode($data);
