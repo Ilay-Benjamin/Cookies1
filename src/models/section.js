@@ -73,32 +73,46 @@ export class Section {
     return this.index === Section.NOTE;
   }
 
-  setAbility(toDisabled) {
-    console.log("< " + this.label + " - setAbility() > toDisabled: " + toDisabled);
-    this.ability = !toDisabled;
-    console.log("< " + this.label + " - setAbility() > this.ability: " + this.ability);
-    this.get("input").disabled = toDisabled;
-    if (toDisabled) {
-      if (this.isNote()) {
-        this.get("input").value = "";
-        this.get("button").disabled = true;
-      } else {
-        this.get("button").innerHTML = "Log-Out";
-        this.get("button").style.backgroundColor = "red";
-        this.get("button").style.color = "black";
-      }
-    } else {
+  disable() {
+    if (this.isNote()) {
+      this.get("button").disabled = true;
       this.get("input").value = "";
-      if (this.isName()) {
-        this.get("button").innerHTML = "Log-In";
-        this.get("button").style.backgroundColor = "green";
-        this.get("button").style.color = "white";
-      } else {
-        this.get("button").disabled = false;
-      }
+      this.get("input").disabled = true;  
+    } else {
+      this.get("button").innerHTML = "Log-Out";
+      this.get("button").style.backgroundColor = "red";
+      this.get("button").style.color = "black";
+      this.get("input").disabled = true;
     }
-    console.log("< " + this.label + " - setAbility() > input.disabled: " + this.get("input").disabled);
-    console.log("< " + this.label + " - setAbility() > button.disabled: " + this.get("button").disabled);
+    this.activity = false;
+  }
+
+  active() {
+    if (this.isName()) {
+      this.get("button").innerHTML = "Log-In";
+      this.get("button").style.backgroundColor = "green";
+      this.get("button").style.color = "white";
+      this.get("input").value = "";
+      this.get("input").disabled = false;
+    } else {
+      this.get("button").disabled = false;
+      this.get("input").disabled = false;
+    }
+    this.activity = true;
+  }
+
+  setAbility(mode) {
+    console.log("< " + this.label + " - setAbility(mode) > mode: " + mode);
+    if (mode) {
+      console.log("< " + this.label + " - setAbility() > active()");
+      this.active();
+    } else {
+      console.log("< " + this.label + " - setAbility() > disable()");
+      this.disable();
+    }
+    console.log("< " + this.label + " - setAbility() > input.disabled: " + input.disabled);
+    console.log("< " + this.label + " - setAbility() > button.disabled: " + button.disabled);
+    console.log("< " + this.label + " - setAbility() > cManager.isSignedIn(): " + cManager.isSignedIn());
   }
 
   getValue() {
