@@ -9,7 +9,7 @@ import { nameSect, noteSect } from './../models/section.js';
 export function nameHandler() {
     console.table(nameSect);
     console.log("< nameHandler > nameSect.ability: " + nameSect.ability);
-    console.log("< nameHandler - sign(mode) > mode-param: " + !ability);
+    console.log("< nameHandler - sign(mode) > mode-param: " + !nameSect.ability);
     sign(!nameSect.ability);
 }
 
