@@ -6,7 +6,6 @@ import { enter } from './../../services/enterService.js';
 // Sign In/Out Function
 export function sign(mode) {
   var toSignIn = mode;
-  console.log("toSignIn: " + toSignIn);
   if (toSignIn) {
     if (nameSect.checkValue()) {
       nameSect.setAbility(false);
