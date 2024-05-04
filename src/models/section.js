@@ -150,7 +150,8 @@ export class Section {
       input: nameInput,
       button: nameButton
     };
-    var ability = cManager.isSignedIn();
+    var isSignedIn = cManager.isSignedIn();
+    var ability = !isSignedIn;
     return new Section(index, label, elements, ability);
   }
 
@@ -162,7 +163,8 @@ export class Section {
       input: noteInput,
       button: noteButton
     };
-    var ability = !cManager.isSignedIn();
+    var isSignedIn = cManager.isSignedIn();
+    var ability = isSignedIn;
     return new Section(index, label, elements, ability);
   }
 
