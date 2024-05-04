@@ -53,7 +53,6 @@ function loadUser() {
   if (cManager.isSignedIn()) {
     console.log("User is signed in");
     nameSect.get("input").value = cManager.getUsername();
-    alert("Welcome back, " + cManager.getUsername());
     nameSect.setAbility(false);
   } 
   return (cManager.isSignedIn());
