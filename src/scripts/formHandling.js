@@ -1,22 +1,13 @@
 import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote } from './../assets/js/script.js';
 import { heyServer } from './../services/heyServerService.js';
-import { loginToServer } from './../services/loginService.js';
-import { logoutFromServer } from './../services/logoutService.js';
 import { nameSect, noteSect } from './../models/section.js';
 import { cManager } from './../models/cookiesManager.js';
 
 
 // Name Handler Function
 export function nameHandler() {
-    var b = sign(nameSect.ability);
-    if (b) {
-      if (cManager.isSignedIn()) {
-          loginToServer(cManager.getUsername());
-      } else {
-          logoutFromServer();      
-      }
-    }
+    sign(nameSect.ability);
 }
 
 // Note Handler Function

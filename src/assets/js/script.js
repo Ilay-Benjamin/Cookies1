@@ -3,6 +3,9 @@ import { nameSect, noteSect } from './../../models/section.js';
 import { shakeElement, appendNoteElement, appendMessageElement } from './../../scripts/builder.js';
 import { enter } from './../../services/enterService.js';
 import { loginToServer } from './../../services/loginService.js';
+import { logoutFromServer } from './../../services/logoutService.js';
+
+
 
 // Sign In/Out Function
 export function sign(mode) {
@@ -12,6 +15,7 @@ export function sign(mode) {
       nameSect.setAbility(false);
       noteSect.setAbility(true);
       cManager.login(nameSect.getValue());
+      loginToServer(cManager.getUsername());
       return true;
     } else {
       console.error("Name is empty");
@@ -22,6 +26,7 @@ export function sign(mode) {
     nameSect.setAbility(true);
     noteSect.setAbility(false);
     cManager.logout();
+    logoutFromServer();
     return true;
   }
 }
@@ -37,7 +42,6 @@ export function addNote() {
   shakeElement(noteSect.get("input"));
   return false;
 }
-
 
 // Load Notes Function
 function loadNotes() {
