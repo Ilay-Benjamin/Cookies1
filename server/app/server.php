@@ -81,16 +81,24 @@ function enter() {
 function logout() {
     if (isset($_COOKIE['nickname'])) {
         //unset($_COOKIE['nickname']); // Optional: unset the cookie from the superglobal
-        setcookie('nickname', '', time() - 3600, '/'); // set expiration to one hour ago
+        setcookie('nickname', '', [
+            'expires' => time() - 3600,  // set expiration to one hour ago
+            'path' => '/',
+            'domain' => 'ilaychecks.online',
+            'secure' => true,
+            'httponly' => true,
+            'samesite' => 'Strict'
+        ]); // set expiration to one hour ago
     }
     session_destroy();
     session_start(); // Restart the session to clear data
     session_regenerate_id(true); // Regenerate to a new ID for security
-
+    
     // Redirect to home page or login page
     header('Location: /');
     exit; // Ensure no further execution of script after redirection
 }
+
 
 function login() {
     if (isset($_POST['username']) && strlen($_POST['username']) > 0) {

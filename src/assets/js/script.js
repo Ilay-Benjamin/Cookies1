@@ -23,10 +23,10 @@ export function sign(mode) {
       return false;
     }
   } else {
+    logoutFromServer();
     nameSect.setAbility(true);
     noteSect.setAbility(false);
     cManager.logout();
-    logoutFromServer();
     return true;
   }
 }
