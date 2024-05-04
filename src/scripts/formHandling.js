@@ -7,6 +7,7 @@ import { nameSect, noteSect } from './../models/section.js';
 
 // Name Handler Function
 export function nameHandler() {
+    console.table(nameSect);
     console.log("< nameHandler > nameSect.ability: " + nameSect.ability);
     sign(nameSect.ability);
 }

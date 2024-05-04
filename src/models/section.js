@@ -49,6 +49,7 @@ export class Section {
     this.index = index;
     this.label = label;
     this.elements = elements
+    this.ability = false;
     if (index == Section.ERROR) {
       this.ability = false;
     } else {
