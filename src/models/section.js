@@ -42,8 +42,8 @@ export class Section {
     return index === Section.NAME;
   }
 
-  reBuild() {
-    var newSection = SectionFactory.getSection(this.index);
+  static reBuild(index) {
+    var newSection = SectionFactory.getSection(index);
     this.index = newSection.index;
     this.label = newSection.label;
     this.elements = newSection.elements;
@@ -57,7 +57,7 @@ export class Section {
     if (index == Section.ERROR) {
       this.ability = false;
     } else {
-      this.setAbility(this.ability);
+      this.setAbility(ability);
     }
   }
 
@@ -172,6 +172,6 @@ export var noteSect = SectionFactory.ERROR_SECTION();
 
 // Reload Sections Function
 export function reloadSections() {
-  nameSect = SectionFactory.NAME_SECTION();
-  noteSect = SectionFactory.NOTE_SECTION();
+  nameSect.reBuild(Section.NAME);
+  noteSect.reBuild(Section.NOTE);
 }
