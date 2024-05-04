@@ -1,5 +1,6 @@
-import { cManager } from "./../models/cookiesManager";
+import { cManager } from "./cookiesManager";
 //import { nameDiv, nameInput, nameButton, noteDiv, noteInput, noteButton } from "./../inc/va";
+
 
 
 // Section class
