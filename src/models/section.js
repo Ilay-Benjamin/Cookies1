@@ -10,34 +10,6 @@ export class Section {
   static NAME = 0;
   static NOTE = 1;
 
-  static ERROR_SECTION() {
-    return new Section(Section.ERROR, "Error", null, null);
-  }
-
-  static NAME_SECTION() {
-    var index = Section.NAME;
-    var label = "Name";
-    var elements = {
-      div: nameDiv,
-      input: nameInput,
-      button: nameButton
-    };
-    var ability = cManager.isSignedIn();
-    return new Section(index, label, elements, ability);
-  }
-
-  static NOTE_SECTION() {
-    var index = Section.NOTE;
-    var label = "Note";
-    var elements = {
-      div: noteDiv,
-      input: noteInput,
-      button: noteButton
-    };
-    var ability = !cManager.isSignedIn();
-    return new Section(index, label, elements, ability);
-  }
-
   static isName(index) {
     return index === Section.NAME;
   }
@@ -171,13 +143,13 @@ export class Section {
   }
 
   static getSection(index) {
-    if (Section.isName(index)) {
-      return Section.NAME_SECTION();
+    if (SectionFactory.isName(index)) {
+      return SectionFactory.NAME_SECTION();
     }
-    if (Section.isNote(index)) {
-      return Section.NOTE_SECTION();
+    if (SectionFactory.isNote(index)) {
+      return SectionFactory.NOTE_SECTION();
     }
-    return Section.ERROR_SECTION();
+    return SectionFactory.ERROR_SECTION();
   }
 
 }
