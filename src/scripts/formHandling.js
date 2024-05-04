@@ -71,3 +71,4 @@ export function check3() {
 // Check Function
 export function check4() {
   getUsername((data) => appendMessageElement(data.username));
+}
