@@ -143,10 +143,10 @@ export class Section {
   }
 
   static getSection(index) {
-    if (SectionFactory.isName(index)) {
+    if (Section.isName(index)) {
       return SectionFactory.NAME_SECTION();
     }
-    if (SectionFactory.isNote(index)) {
+    if (Section.isNote(index)) {
       return SectionFactory.NOTE_SECTION();
     }
     return SectionFactory.ERROR_SECTION();
