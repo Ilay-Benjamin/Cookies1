@@ -40,6 +40,8 @@ export class Section {
       };
       ability = cManager.isSignedIn();
     }
+    console.log("< " + this.label + " - reBuild() > cManager.isSignedIn(): " + cManager.isSignedIn());
+    console.log("< " + this.label + " - reBuild() > ability: " + ability);
     this.label = label;
     this.elements = elements;
     this.setAbility(ability);
@@ -144,8 +146,9 @@ export class Section {
     };
     var isSignedIn = cManager.isSignedIn();
     var ability = !isSignedIn;
-    console.log("< SectionFactory.NAME_SECTION() > ability-param: " + ability);
     var s = new Section(index, label, elements, ability);
+    console.log("< " + this.label + " - reBuild() > cManager.isSignedIn(): " + cManager.isSignedIn());
+    console.log("< SectionFactory.NAME_SECTION() > ability-param: " + ability);
     console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
     return s;
   }
@@ -160,6 +163,7 @@ export class Section {
     };
     var isSignedIn = cManager.isSignedIn();
     var ability = isSignedIn;
+    console.log("< " + this.label + " - reBuild() > cManager.isSignedIn(): " + cManager.isSignedIn());
     console.log("< SectionFactory.NOTE_SECTION() > ability-param: " + ability);
     var s = new Section(index, label, elements, ability);
     console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
@@ -190,6 +194,10 @@ export var noteSect = SectionFactory.ERROR_SECTION();
 
 // Reload Sections Function
 export function reloadSections() {
+  console.log("< reloadSections() > ");
+  console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
   nameSect.reBuild(Section.NAME);
+  console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
   noteSect.reBuild(Section.NOTE);
+  console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
 }
