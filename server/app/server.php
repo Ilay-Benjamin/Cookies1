@@ -35,7 +35,7 @@ function contact() {
 }
 
 function hey() {
-    $usernameAsString = strlen($_SESSION['username']) > 0 ? $_SESSION['username'] : 'Guest';
+    $usernameAsString = $_SESSION['username'];
     $message = "Heyyy " . $usernameAsString . ' (From the server)!';
     $data = new stdClass();
     $data->message = $message;
