@@ -9,8 +9,8 @@ export function sign(mode) {
   console.log("toSignIn: " + toSignIn);
   if (toSignIn) {
     if (nameSect.checkValue()) {
-      nameSect.setAbility(true);
-      noteSect.setAbility(false);
+      nameSect.setAbility(false);
+      noteSect.setAbility(true);
       cManager.login(nameSect.getValue());
       return true;
     } else {
@@ -19,8 +19,8 @@ export function sign(mode) {
       return false;
     }
   } else {
-    nameSect.setAbility(false);
-    noteSect.setAbility(true);
+    nameSect.setAbility(true);
+    noteSect.setAbility(false);
     cManager.logout();
     return true;
   }
