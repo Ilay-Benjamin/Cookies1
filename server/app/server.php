@@ -23,8 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 function contact() {
     if (isset($_POST['message']) && strlen($_POST['message']) > 0) {
-        $usernameAsString = $_SESSION['username'] ?? 'Guest';
-        $message = "Hey " . $usernameAsString . ", Thank you for contacting us! We will get back to you soon!";
+        $nameAsString = $_SESSION['name'] ?? 'Guest';
+        $message = "Hey " . $nameAsString . ", Thank you for contacting us! We will get back to you soon!";
         $data = new stdClass();
         $data->message = $message;
         $json = json_encode($data);
@@ -35,8 +35,8 @@ function contact() {
 }
 
 function hey() {
-    $usernameAsString = $_SESSION['username'] ?? 'Guest';
-    $message = "Heyyy " . $usernameAsString . ' (From the server)!';
+    $nameAsString = $_SESSION['name'] ?? 'Guest';
+    $message = "Heyyy " . $nameAsString . ' (From the server)!';
     $data = new stdClass();
     $data->message = $message;
     $json = json_encode($data);
@@ -45,7 +45,7 @@ function hey() {
 
 function enter() {
     session_start();
-    $_SESSION['username'] = "";
+    $_SESSION['name'] = "";
     $_SESSION['logged_in'] = false;
     $data = new stdClass();
     $data->message="Welcome to Ilay's website!";
@@ -59,8 +59,8 @@ function logout() {
 }
 
 function login() {
-    if (isset($_POST['username']) && strlen($_POST['username']) > 0) {
-        $_SESSION['username'] = $_POST['username'];
+    if (isset($_POST['name']) && strlen($_POST['name']) > 0) {
+        $_SESSION['name'] = $_POST['name'];
         $_SESSION['logged_in'] = true;
         header('Location: /');
     } else {
@@ -69,7 +69,7 @@ function login() {
 }
 
 
-$_SESSION['username'] = "admin-Ilay";
+$_SESSION['name'] = "admin-Ilay";
 $_SESSION['logged_in'] = true;
 
 

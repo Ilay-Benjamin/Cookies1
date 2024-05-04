@@ -1,6 +1,8 @@
 import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote } from './../assets/js/script.js';
 import { heyServer } from './../services/heyServerService.js';
+import { loginToServer } from './../services/loginService.js';
+import { logoutFromServer } from './../services/loginService.js';
 import { nameSect, noteSect } from './../models/section.js';
 
 
@@ -8,6 +10,11 @@ import { nameSect, noteSect } from './../models/section.js';
 // Name Handler Function
 export function nameHandler() {
     sign(nameSect.ability);
+    if (cManager.isSignedIn()) {
+        loginToServer(cManager.getUsername());
+    } else {
+        logoutFromServer();      
+    }
 }
 
 // Note Handler Function
