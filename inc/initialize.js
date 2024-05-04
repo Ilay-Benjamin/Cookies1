@@ -1,4 +1,4 @@
-import { CookieManager } from "./../src/models/cookiesManager";
+import { cManager } from "./../src/models/cookiesManager";
 
 
 
@@ -40,28 +40,5 @@ export function loadHTMLElements() {
 
     // Note Button
     noteButton = document.getElementById("note_button");
-
-}
-
-
-
-// Start Cookies Manager Function 
-export function startCookiesManager() {
-
-    // Cookie Manager Object
-    cManager = new CookieManager();
-
-}
-
-
-
-// Initialize Sections Function
-export function initializeSections() {
-
-    // Name Section
-    nameSect = Section.NAME_SECTION();
-
-    // Note Section
-    noteSect = Section.NOTE_SECTION();
 
 }

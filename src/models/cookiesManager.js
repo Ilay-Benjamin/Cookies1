@@ -88,3 +88,8 @@ export class MyCookie {
   }
   
 }
+
+
+
+// Export the CookiesManager instance
+export const cManager = new CookiesManager();

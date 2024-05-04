@@ -1,5 +1,5 @@
-import { CookiesManager } from './../../models/cookiesManager.js';
-import { Section, SectionFactory } from './../../models/section.js';
+import { cManager } from './../../models/cookiesManager.js';
+import { nameSect, noteSect } from './../../models/section.js';
 import { shakeElement, appendNoteElement, appendMessageElement } from './../../scripts/builder.js';
 import { enter } from './../../services/enterService.js';
 

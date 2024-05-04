@@ -35,13 +35,5 @@ var noteInput;
 // Note Button
 var noteButton;
 
-// Cookie Manager Object
-var cManager;
-
-// Name Section Object
-var nameSect;
-
-// Note Section Object
-var noteSect;
 
 
