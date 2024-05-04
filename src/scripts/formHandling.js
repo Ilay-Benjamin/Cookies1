@@ -9,11 +9,13 @@ import { nameSect, noteSect } from './../models/section.js';
 
 // Name Handler Function
 export function nameHandler() {
-    sign(nameSect.ability);
-    if (cManager.isSignedIn()) {
-        loginToServer(cManager.getUsername());
-    } else {
-        logoutFromServer();      
+    var b = sign(nameSect.ability);
+    if (b) {
+      if (cManager.isSignedIn()) {
+          loginToServer(cManager.getUsername());
+      } else {
+          logoutFromServer();      
+      }
     }
 }
 
