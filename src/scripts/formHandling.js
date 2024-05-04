@@ -8,8 +8,6 @@ import { nameSect, noteSect } from './../models/section.js';
 // Name Handler Function
 export function nameHandler() {
     console.table(nameSect);
-    console.log("< nameHandler > nameSect.ability: " + nameSect.ability);
-    console.log("< nameHandler - sign(mode) > mode-param: " + nameSect.ability);
     sign(nameSect.ability);
 }
 
@@ -26,9 +24,7 @@ export async function heyServerHandler() {
 
 // Contact Handler Function
 export async function contactHandler() {
-    console.log("Contact: " + contactInput.value);
     var contact = contactInput.value;
-    console.log("Contact: " + contact);
     if (contact !== "") {
       $.ajax({
         type: "POST",
@@ -38,7 +34,6 @@ export async function contactHandler() {
           message: contact
         },
         success: function(output) {
-          console.log(output);
           var data = JSON.parse(output);
           appendMessageElement(data.message + "\n" + " (Msg: " + contact + ") ");
           //contact.value = "";
