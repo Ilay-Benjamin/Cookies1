@@ -19,11 +19,30 @@ export class Section {
   }
 
   reBuild(index) {
-    var newSection = SectionFactory.getSection(index);
     this.index = newSection.index;
-    this.label = newSection.label;
-    this.elements = newSection.elements;
-    this.setAbility(newSection.ability);
+    var label = "";
+    var elements = {};
+    var activity = false;
+    if (Section.isName(index)) {
+      label = "Name";
+      elements = {
+        div: nameDiv,
+        input: nameInput,
+        button: nameButton
+      };
+      activity = !cManager.isSignedIn();
+    } else {
+      label = "Note";
+      elements = {
+        div: noteDiv,
+        input: noteInput,
+        button: noteButton
+      };
+      activity = cManager.isSignedIn();
+    }
+    this.label = label;
+    this.elements = elements;
+    this.setAbility(activity);
   }
   
   constructor(index, label, elements, ability) {
