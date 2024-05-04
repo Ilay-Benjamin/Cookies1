@@ -42,6 +42,10 @@ export class Section {
     return index === Section.NAME;
   }
 
+  static isNote(index) {
+    return index === Section.NOTE;
+  }
+
   reBuild(index) {
     var newSection = SectionFactory.getSection(index);
     this.index = newSection.index;
