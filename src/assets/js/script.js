@@ -2,6 +2,7 @@ import { cManager } from './../../models/cookiesManager.js';
 import { nameSect, noteSect } from './../../models/section.js';
 import { shakeElement, appendNoteElement, appendMessageElement } from './../../scripts/builder.js';
 import { enter } from './../../services/enterService.js';
+import { loginToServer } from './../../services/loginService.js';
 
 // Sign In/Out Function
 export function sign(mode) {
@@ -54,6 +55,7 @@ function loadUser() {
     console.log("User is signed in");
     nameSect.get("input").value = cManager.getUsername();
     nameSect.setAbility(false);
+    loginToServer(cManager.getUsername());
   } 
   return (cManager.isSignedIn());
 }
