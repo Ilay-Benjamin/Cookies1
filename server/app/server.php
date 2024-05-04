@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 function contact() {
     if (isset($_POST['message']) && strlen($_POST['message']) > 0) {
-        $usernameAsString = $_SESSION['username'] ?? 'Guest';
+        $usernameAsString = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
         $message = "Hey " . $usernameAsString . ", Thank you for contacting us! We will get back to you soon!";
         $data = new stdClass();
         $data->message = $message;
@@ -35,7 +35,7 @@ function contact() {
 }
 
 function hey() {
-    $usernameAsString = $_SESSION['username'] ?? 'Guest';
+    $usernameAsString = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
     $message = "Heyyy " . $usernameAsString . ' (From the server)!';
     $data = new stdClass();
     $data->message = $message;

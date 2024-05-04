@@ -4,7 +4,7 @@ export async function loginToServer(name) {
         url: "https://ilaychecks.online/Apps/app5/server/app/server.php",
         data: {
             action: "login",
-            name: name
+            username: name
         },
         success: function(output) {
             // Nothing...
