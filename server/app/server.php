@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'logout' => logout(),
             'getUsername' => getUsername(),
             'getNotes' => getNotes(),
+            'getNickname' => getNickname(),
             default => die('Invalid action'),
         };
     }
@@ -26,6 +27,14 @@ function getUsername() {
     $usernameAsString = isset($_COOKIE['username']) ? htmlspecialchars($_COOKIE['username']) : 'Guest';
     $data = new stdClass();
     $data->username = $usernameAsString;
+    $json = json_encode($data);
+    echo $json;
+}
+
+function getNickname() {
+    $usernameAsString = isset($_COOKIE['nickname']) ? htmlspecialchars($_COOKIE['nickname']) : strrev('Guest');
+    $data = new stdClass();
+    $data->nickname = $usernameAsString;
     $json = json_encode($data);
     echo $json;
 }
@@ -80,6 +89,14 @@ function login() {
     if (isset($_POST['username']) && strlen($_POST['username']) > 0) {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['logged_in'] = true;
+        setcookie('nickname', strrev($_SESSION['username']), [
+            'expires' => time() + 60 * 60 * 24 * 30,  // 30 days
+            'path' => '/',
+            'domain' => 'ilaychecks.online',
+            'secure' => true,
+            'httponly' => true,
+            'samesite' => 'Strict'
+        ]);
         header('Location: /');
         exit();  // Make sure to exit after header redirect to stop script execution
     } else {
