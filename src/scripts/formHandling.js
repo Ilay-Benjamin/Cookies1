@@ -4,7 +4,7 @@ import { heyServer } from './../services/heyServerService.js';
 import { loginToServer } from './../services/loginService.js';
 import { logoutFromServer } from './../services/logoutService.js';
 import { nameSect, noteSect } from './../models/section.js';
-
+import { cManager } from './../models/cookiesManager.js';
 
 
 // Name Handler Function
