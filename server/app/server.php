@@ -84,10 +84,6 @@ function logout() {
         setcookie('nickname', '', [
             'expires' => time() - 3600,  // set expiration to one hour ago
             'path' => '/',
-            'domain' => 'ilaychecks.online',
-            'secure' => true,
-            'httponly' => true,
-            'samesite' => 'Strict'
         ]); // set expiration to one hour ago
     }
     session_destroy();
