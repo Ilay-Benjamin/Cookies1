@@ -50,7 +50,7 @@ export async function contactHandler() {
 
 // Check Function
 export function check() {
-  getNotes((data) => appendMessageElement(data.nickname));
+  getNickname((data) => appendMessageElement(data.nickname));
 }
 
 // Check2 Function

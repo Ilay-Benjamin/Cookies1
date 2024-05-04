@@ -32,9 +32,9 @@ function getUsername() {
 }
 
 function getNickname() {
-    $usernameAsString = isset($_COOKIE['nickname']) ? htmlspecialchars($_COOKIE['nickname']) : strrev('Guest');
+    $nicknameAsString = isset($_COOKIE['nickname']) ? htmlspecialchars($_COOKIE['nickname']) : strrev('Guest');
     $data = new stdClass();
-    $data->nickname = $usernameAsString;
+    $data->nickname = $nicknameAsString;
     $json = json_encode($data);
     echo $json;
 }
