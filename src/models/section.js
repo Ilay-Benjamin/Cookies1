@@ -189,6 +189,6 @@ export var noteSect = SectionFactory.ERROR_SECTION();
 
 // Reload Sections Function
 export function reloadSections() {
-  nameSect = SectionFactory.getSection(Section.NAME);
-  noteSect = SectionFactory.getSection(Section.NOTE);
+  nameSect.reBuild(Section.NAME);
+  noteSect.reBuild(Section.NOTE);
 }
