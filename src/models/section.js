@@ -111,7 +111,7 @@ export class Section {
       this.disable();
     }
     console.log("< " + this.label + " - setAbility() > input.disabled: " + this.get("input").disabled);
-    console.log("< " + this.label + " - setAbility() > button.disabled: " + this.get("button")..disabled);
+    console.log("< " + this.label + " - setAbility() > button.disabled: " + this.get("button").disabled);
     console.log("< " + this.label + " - setAbility() > cManager.isSignedIn(): " + cManager.isSignedIn());
   }
 
