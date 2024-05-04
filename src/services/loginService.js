@@ -8,7 +8,6 @@ export async function loginToServer(name) {
         },
         success: function(output) {
             // Nothing...
-            console.log(output);
         },
     });
 }
