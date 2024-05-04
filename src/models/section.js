@@ -125,6 +125,7 @@ export class Section {
     var isSignedIn = cManager.isSignedIn();
     var ability = !isSignedIn;
     console.log("< SectionFactory.NAME_SECTION() > ability-param: " + ability);
+    console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
     return new Section(index, label, elements, ability);
   }
 
@@ -139,6 +140,7 @@ export class Section {
     var isSignedIn = cManager.isSignedIn();
     var ability = isSignedIn;
     console.log("< SectionFactory.NOTE_SECTION() > ability-param: " + ability);
+    console.log("\n - - - - - - - - - - - - - - - - - - - - - - - - \n");
     return new Section(index, label, elements, ability);
   }
 
