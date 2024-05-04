@@ -1,4 +1,3 @@
-import { cManager } from "./../src/models/cookiesManager";
 
 
 

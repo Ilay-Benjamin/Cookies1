@@ -40,6 +40,14 @@ export class Section {
   static isName(index) {
     return index === Section.NAME;
   }
+
+  reBuild() {
+    var newSection = SectionFactory.getSection(this.index);
+    this.index = newSection.index;
+    this.label = newSection.label;
+    this.elements = newSection.elements;
+    this.setAbility(newSection.ability);
+  }
   
   constructor(index, label, elements, ability) {
     this.index = index;
@@ -154,7 +162,15 @@ export class Section {
 
 
 // Name Section
-export var nameSect = SectionFactory.NAME_SECTION();
+export var nameSect = SectionFactory.ERROR_SECTION();
 
 // Note Section
-export var noteSect = SectionFactory.NOTE_SECTION();
+export var noteSect = SectionFactory.ERROR_SECTION();
+
+
+
+// Reload Sections Function
+export function reloadSections() {
+  nameSect = SectionFactory.NAME_SECTION();
+  noteSect = SectionFactory.NOTE_SECTION();
+}

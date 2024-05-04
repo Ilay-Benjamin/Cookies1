@@ -13,16 +13,16 @@
   <script type="module" defer>
     import { init } from 'https://ilaychecks.online/Apps/app5/src/assets/js/script.js';
     import { check, heyServerHandler, contactHandler, nameHandler, noteHandler } from 'https://ilaychecks.online/Apps/app5/src/scripts/formHandling.js';
-    import { loadHTMLElements, startCookiesManager, initializeSections } from 'https://ilaychecks.online/Apps/app5/inc/initialize.js';
-
+    import { loadHTMLElements } from 'https://ilaychecks.online/Apps/app5/inc/initialize.js';
+    import { reloadSections } from 'https://ilaychecks.online/Apps/app5/src/models/section.js';
     document.addEventListener('DOMContentLoaded', () => {
+      loadHTMLElements();
+      reloadSections();
       $('#check_btn').on('click', check);
       $('#hey_server_button').on('click', heyServerHandler);
       $('#c_button').on('click', contactHandler);
       $('#name_button').on('click', nameHandler);
       $('#note_button').on('click', noteHandler);
-      startCookiesManager();
-      initializeSections();
       init();
     });
   </script>

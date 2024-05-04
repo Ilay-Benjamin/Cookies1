@@ -35,5 +35,3 @@ var noteInput;
 // Note Button
 var noteButton;
 
-
-
