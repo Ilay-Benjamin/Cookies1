@@ -1,4 +1,4 @@
-import { cManager } from "./../src/models/cookiesManager";
+import { cManager } from "./../models/cookiesManager";
 //import { nameDiv, nameInput, nameButton, noteDiv, noteInput, noteButton } from "./../inc/va";
 
 
