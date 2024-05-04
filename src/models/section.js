@@ -42,7 +42,7 @@ export class Section {
     return index === Section.NAME;
   }
 
-  static reBuild(index) {
+  reBuild(index) {
     var newSection = SectionFactory.getSection(index);
     this.index = newSection.index;
     this.label = newSection.label;
