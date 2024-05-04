@@ -22,7 +22,7 @@ export class Section {
     this.index = index;
     var label = "";
     var elements = {};
-    var activity = false;
+    var ability = false;
     if (Section.isName(index)) {
       label = "Name";
       elements = {
@@ -30,7 +30,7 @@ export class Section {
         input: nameInput,
         button: nameButton
       };
-      activity = !cManager.isSignedIn();
+      ability = !cManager.isSignedIn();
     } else {
       label = "Note";
       elements = {
@@ -38,11 +38,11 @@ export class Section {
         input: noteInput,
         button: noteButton
       };
-      activity = cManager.isSignedIn();
+      ability = cManager.isSignedIn();
     }
     this.label = label;
     this.elements = elements;
-    this.setAbility(activity);
+    this.setAbility(ability);
   }
   
   constructor(index, label, elements, ability) {
@@ -80,7 +80,7 @@ export class Section {
       this.get("button").style.color = "black";
       this.get("input").disabled = true;
     }
-    this.activity = false;
+    this.ability = false;
   }
 
   active() {
@@ -94,7 +94,7 @@ export class Section {
       this.get("button").disabled = false;
       this.get("input").disabled = false;
     }
-    this.activity = true;
+    this.ability = true;
   }
 
   setAbility(mode) {
