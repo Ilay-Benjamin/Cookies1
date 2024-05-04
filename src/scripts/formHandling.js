@@ -2,6 +2,7 @@ import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote } from './../assets/js/script.js';
 import { heyServer } from './../services/heyServerService.js';
 import { getUsername } from './../services/getUsernameService.js';
+import { getNotes } from './../services/getNotesService.js';
 import { nameSect, noteSect } from './../models/section.js';
 import { cManager } from './../models/cookiesManager.js';
 
@@ -48,7 +49,7 @@ export async function contactHandler() {
 
 // Check Function
 export function check() {
-    getUsername((data) => appendMessageElement(data.username));
+    getNotes((data) => appendMessageElement(data.notes));
 }
 
 // Check2 Function
@@ -66,3 +67,7 @@ export function check3() {
   details.innerHTML += "cookie: " + document.cookie + "<br>";
   details.innerHTML += "<br> <strong>" + "- - - - - - - - - - - - - - - - - - - - - - - -" + "</strong> <br>";
 }
+
+// Check Function
+export function check4() {
+  getUsername((data) => appendMessageElement(data.username));

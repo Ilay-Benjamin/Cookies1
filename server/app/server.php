@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'hey' => hey(),
             'logout' => logout(),
             'getUsername' => getUsername(),
+            'getNotes' => getNotes(),
             default => die('Invalid action'),
         };
     }
@@ -25,6 +26,14 @@ function getUsername() {
     $usernameAsString = isset($_COOKIE['username']) ? htmlspecialchars($_COOKIE['username']) : 'Guest';
     $data = new stdClass();
     $data->username = $usernameAsString;
+    $json = json_encode($data);
+    echo $json;
+}
+
+function getNotes() {
+    $notes = isset($_COOKIE['notes']) ? $_COOKIE['notes'] : [];
+    $data = new stdClass();
+    $data->notes = $notes;
     $json = json_encode($data);
     echo $json;
 }
