@@ -1,7 +1,6 @@
 import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote } from './../assets/js/script.js';
 import { heyServer } from './../services/heyServerService.js';
-import { cManager } from './../services/cookieManagerService.js';
 import { nameSect, noteSect } from './../models/section.js';
 
 
