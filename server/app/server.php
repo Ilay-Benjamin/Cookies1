@@ -1,5 +1,5 @@
 <?php
-
+session_start();  // Start the session at the beginning of the script
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['action'])) {
@@ -20,10 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     }
 }
 
-
 function contact() {
     if (isset($_POST['message']) && strlen($_POST['message']) > 0) {
-    $usernameAsString = strlen($_SESSION['username']) > 0 ? $_SESSION['username'] : 'Guest';
+        $usernameAsString = isset($_SESSION['username']) && strlen($_SESSION['username']) > 0 ? $_SESSION['username'] : 'Guest';
         $message = "Hey " . $usernameAsString . ", Thank you for contacting us! We will get back to you soon!";
         $data = new stdClass();
         $data->message = $message;
@@ -35,7 +34,7 @@ function contact() {
 }
 
 function hey() {
-    $usernameAsString = strlen($_SESSION['username']) > 0 ? $_SESSION['username'] : 'Guest';
+    $usernameAsString = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
     $message = "Heyyy " . $usernameAsString . ' (From the server)!';
     $data = new stdClass();
     $data->message = $message;
@@ -44,7 +43,6 @@ function hey() {
 }
 
 function enter() {
-    session_start();
     $_SESSION['username'] = "";
     $_SESSION['logged_in'] = false;
     $data = new stdClass();
@@ -55,6 +53,8 @@ function enter() {
 
 function logout() {
     session_destroy();
+    session_start();  // Restart the session to clear data
+    session_regenerate_id(true);  // Regenerate to a new ID for security
     header('Location: /');
 }
 
@@ -63,14 +63,9 @@ function login() {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['logged_in'] = true;
         header('Location: /');
+        exit();  // Make sure to exit after header redirect to stop script execution
     } else {
         echo 'Invalid credentials';
     }
 }
-
-
-$_SESSION['username'] = "admin-Ilay";
-$_SESSION['logged_in'] = true;
-
-
 ?>
