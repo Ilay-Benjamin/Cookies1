@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'enter' => enter(),
             'hey' => hey(),
             'logout' => logout(),
+            'getUsername' => getUsername(),
             default => die('Invalid action'),
         };
     }
@@ -18,6 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             default => die('Invalid action'),
         };
     }
+}
+
+function getUsername() {
+    $usernameAsString = htmlspecialchars($_COOKIE['username']);
+    $data = new stdClass();
+    $data->username = $usernameAsString;
+    $json = json_encode($data);
+    echo $json;
 }
 
 function contact() {
@@ -68,4 +77,7 @@ function login() {
         echo 'Invalid credentials';
     }
 }
+
+session_get_cookie_params();
+
 ?>

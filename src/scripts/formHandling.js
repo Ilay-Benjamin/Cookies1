@@ -1,8 +1,10 @@
 import { shakeElement, appendMessageElement } from './builder.js';
 import { sign, addNote } from './../assets/js/script.js';
 import { heyServer } from './../services/heyServerService.js';
+import { getUsername } from './../services/getUsernameService.js';
 import { nameSect, noteSect } from './../models/section.js';
 import { cManager } from './../models/cookiesManager.js';
+
 
 
 // Name Handler Function
@@ -44,13 +46,18 @@ export async function contactHandler() {
     }
 }
 
+// Check Function
+export function check() {
+    getUsername((data) => appendMessageElement(data.username));
+}
+
 // Check2 Function
 export function check2() {
     contactInput.value = "Ilayyyyyyy";
 }
 
-// Check Function
-export function check() {
+// Check3 Function
+export function check3() {
   details.innerHTML += "isSignedIn: " + cManager.isSignedIn() + "<br>";
   details.innerHTML += "username: " + cManager.getUsername() + "<br>";
   details.innerHTML += "isNotesEmpty: " + cManager.isNotesEmpty() + "<br>";

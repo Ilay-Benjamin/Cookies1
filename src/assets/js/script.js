@@ -1,10 +1,10 @@
 import { cManager } from './../../models/cookiesManager.js';
 import { nameSect, noteSect } from './../../models/section.js';
 import { shakeElement, appendNoteElement, appendMessageElement } from './../../scripts/builder.js';
-import { enter } from './../../services/enterService.js';
+import { enterToApp } from './../../services/enterService.js';
 import { loginToServer } from './../../services/loginService.js';
 import { logoutFromServer } from './../../services/logoutService.js';
-
+ 
 
 
 // Sign In/Out Function
@@ -67,7 +67,7 @@ function loadUser() {
 // Initialize Function
 export function init() {
   console.log("DOM fully loaded and parsed");
-  enter((data) => appendMessageElement(data.message));
+  enterToApp((data) => appendMessageElement(data.message));
   loadUser();
   loadNotes();
 }
