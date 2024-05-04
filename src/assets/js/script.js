@@ -4,7 +4,8 @@ import { shakeElement, appendNoteElement, appendMessageElement } from './../../s
 import { enter } from './../../services/enterService.js';
 
 // Sign In/Out Function
-export function sign(toSignIn) {
+export function sign(mode) {
+  var toSignIn = mode;
   console.log("toSignIn: " + toSignIn);
   if (toSignIn) {
     if (nameSect.checkValue()) {
