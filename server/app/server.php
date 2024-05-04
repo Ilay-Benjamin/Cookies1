@@ -81,10 +81,7 @@ function enter() {
 function logout() {
     if (isset($_COOKIE['nickname'])) {
         //unset($_COOKIE['nickname']); // Optional: unset the cookie from the superglobal
-        setcookie('nickname', '', [
-            'expires' => time() - 3600,  // set expiration to one hour ago
-            'path' => '/',
-        ]); // set expiration to one hour ago
+        setcookie('nickname', '', time() - 3600, "/");
     }
     session_destroy();
     session_start(); // Restart the session to clear data
@@ -100,14 +97,7 @@ function login() {
     if (isset($_POST['username']) && strlen($_POST['username']) > 0) {
         $_SESSION['username'] = $_POST['username'];
         $_SESSION['logged_in'] = true;
-        setcookie('nickname', strrev($_SESSION['username']), [
-            'expires' => time() + 60 * 60 * 24 * 30,  // 30 days
-            'path' => '/',
-            'domain' => 'ilaychecks.online',
-            'secure' => true,
-            'httponly' => true,
-            'samesite' => 'Strict'
-        ]);
+        setcookie('nickname', strrev($_SESSION['username']), time() + 60 * 60 * 24 * 30, '/');
         header('Location: /');
         exit();  // Make sure to exit after header redirect to stop script execution
     } else {
