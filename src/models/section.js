@@ -1,4 +1,4 @@
-import { cManager } from "./cookiesManager";
+import { cManager } from "./cookiesManager.js";
 //import { nameDiv, nameInput, nameButton, noteDiv, noteInput, noteButton } from "./../inc/va";
 
 
