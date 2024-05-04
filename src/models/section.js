@@ -19,7 +19,7 @@ export class Section {
   }
 
   reBuild(index) {
-    this.index = newSection.index;
+    this.index = index;
     var label = "";
     var elements = {};
     var activity = false;
